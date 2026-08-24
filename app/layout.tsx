@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { AnalyticsBridge } from "./analytics-bridge";
+import { MotionLayer } from "./motion-layer";
 import { routeSocialImage } from "./social-images";
 
 const siteUrl = "https://www.cleversouza.com";
@@ -80,6 +81,7 @@ export default function RootLayout({
           Ir para o conteúdo principal
         </a>
         {children}
+        <MotionLayer />
         <AnalyticsBridge />
       </body>
     </html>
