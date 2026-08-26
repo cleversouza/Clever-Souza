@@ -4,6 +4,10 @@ import test from "node:test";
 
 const publicRoutes = [
   "/",
+  "/nutricao",
+  "/nutricao/vitaminas",
+  "/nutricao/vitaminas/vitamina-a",
+  "/nutricao/vitaminas/vitamina-c",
   "/massoterapia",
   "/massoterapia/quick-massage-corporativo",
   "/massoterapia/conteudo",
@@ -154,6 +158,55 @@ test("keeps massotherapy as an independent front", async () => {
   assert.match(html, /Qual Protocolo Clever devo escolher\?/i);
   assert.match(html, /Converse antes de escolher o protocolo/i);
   assert.doesNotMatch(html, /id="tecnicas"/i);
+});
+
+test("renders the nutrition library and the vitamin A guide with responsible health context", async () => {
+  const hub = await render("/nutricao");
+  assert.match(hub, /<h1[^>]*>Nutrição, explicada com contexto<\/h1>/i);
+  assert.match(hub, /href="\/nutricao\/vitaminas"/i);
+
+  const vitamins = await render("/nutricao/vitaminas");
+  assert.match(vitamins, /<h1[^>]*>Vitaminas sem atalhos ou promessas<\/h1>/i);
+  assert.match(vitamins, /href="\/nutricao\/vitaminas\/vitamina-a"/i);
+  assert.match(vitamins, /href="\/nutricao\/vitaminas\/vitamina-c"/i);
+
+  const html = await render("/nutricao/vitaminas/vitamina-a");
+  assert.match(html, /<h1[^>]*>Vitamina A<\/h1>/i);
+  assert.match(html, /800 µg de RAE/i);
+  assert.match(html, /Valor Diário não é necessidade individual/i);
+  assert.match(html, /limite superior apenas para vitamina A pré-formada/i);
+  assert.match(html, /não diagnostica deficiência, não prescreve suplementação/i);
+  assert.match(html, /Anvisa — Instrução Normativa nº 75\/2020/i);
+  assert.match(html, /NIH Office of Dietary Supplements/i);
+  assert.match(html, /WHO — Vitamin A supplementation during pregnancy/i);
+  assert.match(html, /nutricao\/vitamina-a-fontes\.webp/i);
+  assert.match(html, /rel="canonical"[^>]*href="https:\/\/www\.cleversouza\.com\/nutricao\/vitaminas\/vitamina-a"/i);
+  assert.match(html, /property="og:image"[^>]+content="https:\/\/www\.cleversouza\.com\/social\/vitamina-a\.png"/i);
+  assert.match(html, /application\/ld\+json/i);
+  assert.doesNotMatch(
+    html,
+    /Clever Souza.{0,40}nutricionista|consulta nutricional|comprar vitamina A|Omnilife/i,
+  );
+
+  const vitaminC = await render("/nutricao/vitaminas/vitamina-c");
+  assert.match(vitaminC, /<h1[^>]*>Vitamina C<\/h1>/i);
+  assert.match(vitaminC, /VDR no Brasil/i);
+  assert.match(vitaminC, /<strong>100 mg<\/strong>/i);
+  assert.match(vitaminC, /Valor Diário não é necessidade individual/i);
+  assert.match(vitaminC, /2\.000 mg\/dia/i);
+  assert.match(vitaminC, /não reduz de forma consistente a chance de ter um resfriado/i);
+  assert.match(vitaminC, /não diagnostica deficiência, não prescreve suplementação/i);
+  assert.match(vitaminC, /Anvisa — Instrução Normativa nº 75\/2020/i);
+  assert.match(vitaminC, /NIH Office of Dietary Supplements/i);
+  assert.match(vitaminC, /Cochrane — Vitamin C for preventing and treating the common cold/i);
+  assert.match(vitaminC, /nutricao\/vitamina-c-fontes\.webp/i);
+  assert.match(vitaminC, /rel="canonical"[^>]*href="https:\/\/www\.cleversouza\.com\/nutricao\/vitaminas\/vitamina-c"/i);
+  assert.match(vitaminC, /property="og:image"[^>]+content="https:\/\/www\.cleversouza\.com\/social\/vitamina-c\.png"/i);
+  assert.match(vitaminC, /application\/ld\+json/i);
+  assert.doesNotMatch(
+    vitaminC,
+    /Clever Souza.{0,40}nutricionista|consulta nutricional|comprar vitamina C|Omnilife|cura resfriado|previne resfriado/i,
+  );
 });
 
 test("renders the Quick Massage corporate landing with a responsible NR-1 context", async () => {

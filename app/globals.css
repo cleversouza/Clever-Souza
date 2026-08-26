@@ -1833,6 +1833,710 @@ p {
   }
 }
 
+/* Nutrição: biblioteca editorial */
+.nutrition-hub-hero {
+  position: relative;
+  overflow: hidden;
+  width: min(var(--container), calc(100% - 2rem));
+  margin: 1.25rem auto 0;
+  padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 6vw, 5rem);
+  border: 1px solid var(--color-border);
+  border-radius: clamp(1.3rem, 3vw, 2.25rem);
+  background:
+    radial-gradient(circle at 84% 18%, rgb(229 157 64 / 16%), transparent 20rem),
+    linear-gradient(135deg, #f7fbfd 0%, #edf5f9 58%, #fff8ed 100%);
+  box-shadow: var(--shadow-sm);
+}
+
+.nutrition-hub-hero::after {
+  position: absolute;
+  right: clamp(-4rem, -3vw, -1rem);
+  bottom: clamp(-5rem, -5vw, -2rem);
+  width: clamp(12rem, 28vw, 24rem);
+  aspect-ratio: 1;
+  border: 1px solid rgb(39 120 174 / 13%);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 2.5rem rgb(112 216 232 / 4%),
+    0 0 0 5rem rgb(39 120 174 / 2.5%);
+  content: "";
+  pointer-events: none;
+}
+
+.nutrition-hub-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.nutrition-hub-hero h1 {
+  max-width: 54rem;
+  margin-bottom: 1.25rem;
+  font-size: clamp(2.65rem, 6.5vw, 5.2rem);
+}
+
+.nutrition-hub-hero > p:last-child {
+  max-width: 49rem;
+  margin-bottom: 0;
+  font-size: clamp(1.06rem, 1.8vw, 1.26rem);
+}
+
+.nutrition-vitamins-hero {
+  background:
+    radial-gradient(circle at 82% 18%, rgb(231 153 54 / 18%), transparent 19rem),
+    linear-gradient(135deg, #f8fbfd 0%, #f1f6f9 62%, #fff6e8 100%);
+}
+
+.nutrition-guide-list {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.nutrition-hub-entry,
+.nutrition-featured-article {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.nutrition-hub-entry > div {
+  max-width: 48rem;
+}
+
+.nutrition-hub-entry h2,
+.nutrition-featured-copy h2 {
+  margin-bottom: 1rem;
+}
+
+.nutrition-hub-entry p:not(.eyebrow),
+.nutrition-featured-copy p:not(.eyebrow) {
+  margin-bottom: 0;
+  font-size: 1.05rem;
+}
+
+.nutrition-hub-entry .button {
+  flex: 0 0 auto;
+}
+
+.nutrition-featured-article {
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.nutrition-featured-copy {
+  flex: 1 1 52%;
+  padding: clamp(2rem, 5vw, 4.5rem);
+}
+
+.nutrition-featured-copy .text-link {
+  display: inline-block;
+  margin-top: 1.4rem;
+  color: var(--color-brand-primary);
+  font-weight: 750;
+}
+
+.nutrition-featured-article > img {
+  width: min(44%, 32rem);
+  min-height: 24rem;
+  align-self: stretch;
+  object-fit: cover;
+}
+
+.nutrition-article {
+  width: min(var(--container), calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.nutrition-article-hero {
+  display: grid;
+  margin-top: 1.25rem;
+  padding: clamp(2rem, 5vw, 4.25rem);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  border: 1px solid var(--color-border);
+  border-radius: clamp(1.3rem, 3vw, 2.25rem);
+  background:
+    radial-gradient(circle at 12% 12%, rgb(112 216 232 / 11%), transparent 24rem),
+    linear-gradient(135deg, #f8fbfd 0%, #eff6f9 58%, #fff8ed 100%);
+  box-shadow: var(--shadow-sm);
+  grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.92fr);
+}
+
+.nutrition-article--vitamin-c .nutrition-article-hero {
+  background:
+    radial-gradient(circle at 12% 12%, rgb(112 216 232 / 12%), transparent 24rem),
+    radial-gradient(circle at 88% 18%, rgb(218 76 55 / 11%), transparent 18rem),
+    linear-gradient(135deg, #f8fbfd 0%, #eef6f9 58%, #fff5e9 100%);
+}
+
+.nutrition-article--vitamin-c .nutrition-essential {
+  border-color: rgb(39 120 174 / 25%);
+  border-left-color: #d66b35;
+  background: linear-gradient(135deg, #eff8fb 0%, #fff8ef 100%);
+}
+
+.nutrition-article-heading h1 {
+  margin-bottom: 1.2rem;
+  font-size: clamp(3.5rem, 7vw, 6.4rem);
+}
+
+.nutrition-deck {
+  max-width: 48rem;
+  margin-bottom: 0;
+  color: var(--color-brand-deep);
+  font-size: clamp(1.08rem, 1.8vw, 1.32rem);
+  line-height: 1.62;
+}
+
+.nutrition-publication-meta {
+  display: flex;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.45rem 1.2rem;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+}
+
+.nutrition-hero-visual {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgb(7 26 51 / 10%);
+  border-radius: var(--radius-lg);
+  background: #dbe8ed;
+  box-shadow: var(--shadow-lg);
+}
+
+.nutrition-hero-visual img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.nutrition-hero-visual figcaption {
+  padding: 0.8rem 1rem;
+  color: var(--color-text-secondary);
+  background: rgb(255 255 255 / 93%);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.nutrition-article-layout {
+  display: grid;
+  padding: clamp(3.5rem, 8vw, 7rem) 0;
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: minmax(13rem, 0.3fr) minmax(0, 0.7fr);
+}
+
+.nutrition-toc {
+  position: sticky;
+  top: 7rem;
+  max-height: calc(100vh - 9rem);
+  overflow-y: auto;
+  padding: 1.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: rgb(255 255 255 / 94%);
+  box-shadow: var(--shadow-sm);
+}
+
+.nutrition-toc strong {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: var(--color-brand-deep);
+}
+
+.nutrition-toc ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.nutrition-toc li {
+  margin: 0.28rem 0;
+  color: var(--color-text-secondary);
+  font-size: 0.84rem;
+  line-height: 1.42;
+}
+
+.nutrition-toc a {
+  text-decoration: none;
+}
+
+.nutrition-article-body {
+  width: min(100%, 49rem);
+}
+
+.nutrition-article-body > section,
+.nutrition-faq,
+.nutrition-references {
+  scroll-margin-top: 7.5rem;
+}
+
+.nutrition-article-body > section:not(:first-of-type),
+.nutrition-faq,
+.nutrition-references {
+  margin-top: clamp(4rem, 8vw, 7rem);
+}
+
+.nutrition-article-body.prose p,
+.nutrition-article-body.prose li,
+.nutrition-article-body.prose dd {
+  color: #3f5060;
+  font-size: 1.03rem;
+  line-height: 1.82;
+}
+
+.nutrition-article-body.prose h2 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.nutrition-article-body.prose h3 {
+  margin-top: 2.5rem;
+  font-size: clamp(1.3rem, 2.4vw, 1.72rem);
+}
+
+.nutrition-article-body .eyebrow {
+  margin-bottom: 0.65rem;
+  color: #9a5b10;
+}
+
+.nutrition-lead {
+  margin-bottom: 2rem;
+  color: var(--color-brand-deep) !important;
+  font-size: clamp(1.14rem, 2vw, 1.34rem) !important;
+  font-weight: 560;
+  line-height: 1.68 !important;
+}
+
+.nutrition-essential {
+  margin: 0 0 clamp(4rem, 8vw, 6rem);
+  padding: clamp(1.35rem, 3vw, 2rem);
+  border: 1px solid rgb(39 120 174 / 26%);
+  border-left: 0.35rem solid var(--color-brand-steel);
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #eff8fb, #f8fbfd);
+}
+
+.nutrition-essential ul {
+  margin-bottom: 0;
+}
+
+.nutrition-form-grid {
+  display: grid;
+  margin: 2rem 0;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.nutrition-form-grid > div {
+  padding: 1.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.nutrition-form-grid dt {
+  margin-bottom: 0.55rem;
+  color: var(--color-brand-deep);
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 750;
+}
+
+.nutrition-form-grid dd {
+  margin: 0;
+  font-size: 0.95rem !important;
+  line-height: 1.68 !important;
+}
+
+.nutrition-note,
+.nutrition-pregnancy-alert,
+.nutrition-equivalence {
+  margin: 1.75rem 0;
+  padding: 1.4rem;
+  border: 1px solid #e5cda9;
+  border-left: 0.35rem solid #c27a22;
+  border-radius: var(--radius-md);
+  background: #fff9f0;
+}
+
+.nutrition-note strong,
+.nutrition-pregnancy-alert strong,
+.nutrition-equivalence strong {
+  color: var(--color-brand-deep);
+}
+
+.nutrition-function-list {
+  margin: 2rem 0;
+  padding: 0;
+  counter-reset: nutrition-function;
+  list-style: none;
+}
+
+.nutrition-function-list li {
+  position: relative;
+  margin-bottom: 0;
+  padding: 1.15rem 0 1.15rem 3rem;
+  border-bottom: 1px solid var(--color-border);
+  counter-increment: nutrition-function;
+}
+
+.nutrition-function-list li::before {
+  position: absolute;
+  top: 1.2rem;
+  left: 0;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgb(39 120 174 / 30%);
+  border-radius: 50%;
+  color: var(--color-brand-primary);
+  content: counter(nutrition-function, decimal-leading-zero);
+  font-size: 0.7rem;
+  font-weight: 800;
+  place-items: center;
+}
+
+.nutrition-table-wrap {
+  overflow-x: auto;
+  margin: 2rem 0 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.nutrition-table-wrap:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.nutrition-table {
+  width: 100%;
+  min-width: 46rem;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.nutrition-table caption {
+  padding: 1rem;
+  color: var(--color-brand-deep);
+  font-weight: 750;
+  text-align: left;
+}
+
+.nutrition-table th,
+.nutrition-table td {
+  padding: 0.95rem 1rem;
+  border-top: 1px solid var(--color-border);
+  vertical-align: top;
+  text-align: left;
+}
+
+.nutrition-table thead th {
+  background: var(--color-surface-subtle);
+  color: var(--color-brand-deep);
+}
+
+.nutrition-table tbody th {
+  min-width: 9rem;
+  color: var(--color-brand-deep);
+}
+
+.nutrition-table-footnote,
+.nutrition-source-note {
+  margin-top: 0.8rem;
+  color: var(--color-text-secondary) !important;
+  font-size: 0.86rem !important;
+  line-height: 1.6 !important;
+}
+
+.nutrition-equivalence p,
+.nutrition-equivalence ul {
+  margin-bottom: 0.6rem;
+}
+
+.nutrition-vdr-callout {
+  display: grid;
+  margin: 2rem 0 2.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid rgb(39 120 174 / 22%);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 88% 22%, rgb(229 157 64 / 20%), transparent 11rem),
+    linear-gradient(135deg, #071a33, #0b4f8a);
+  box-shadow: var(--shadow-lg);
+}
+
+.nutrition-vdr-callout span,
+.nutrition-vdr-callout p {
+  color: #d9e9f1 !important;
+}
+
+.nutrition-vdr-callout span {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nutrition-vdr-callout strong {
+  margin: 0.35rem 0;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1;
+}
+
+.nutrition-vdr-callout p {
+  margin: 0;
+}
+
+.nutrition-reference-table .nutrition-table {
+  min-width: 43rem;
+}
+
+.nutrition-risk-compare {
+  display: grid;
+  margin: 2rem 0;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.nutrition-risk-compare > div {
+  padding: 1.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.nutrition-risk-compare h3 {
+  margin-top: 0 !important;
+}
+
+.nutrition-risk-compare p {
+  margin-bottom: 0;
+  font-size: 0.95rem !important;
+  line-height: 1.68 !important;
+}
+
+.nutrition-pregnancy-alert {
+  margin-top: 2rem;
+}
+
+.nutrition-pregnancy-alert > strong {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 1.08rem;
+}
+
+.nutrition-pregnancy-alert p {
+  margin-bottom: 0;
+}
+
+.nutrition-checklist {
+  margin-top: 2rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: nutrition-checklist;
+}
+
+.nutrition-checklist li {
+  position: relative;
+  min-height: 3.35rem;
+  margin-bottom: 1rem;
+  padding-left: 3.4rem;
+  counter-increment: nutrition-checklist;
+}
+
+.nutrition-checklist li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  width: 2.45rem;
+  height: 2.45rem;
+  border-radius: 0.8rem;
+  background: var(--color-brand-deep);
+  color: #fff;
+  content: counter(nutrition-checklist);
+  font-weight: 800;
+  place-items: center;
+}
+
+.nutrition-health-note {
+  margin-top: 2.5rem;
+}
+
+.nutrition-faq h2,
+.nutrition-references h2 {
+  margin-top: 0 !important;
+}
+
+.nutrition-references ol {
+  padding-left: 1.4rem;
+}
+
+.nutrition-references li {
+  margin-bottom: 1.35rem;
+  padding-left: 0.3rem;
+}
+
+.nutrition-references li > a {
+  color: var(--color-brand-primary);
+  font-weight: 750;
+}
+
+.nutrition-references li p {
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem !important;
+  line-height: 1.62 !important;
+}
+
+.nutrition-article-paths {
+  display: flex;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.nutrition-article-paths a {
+  color: var(--color-brand-primary);
+  font-weight: 750;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nutrition-hero-visual img,
+  .nutrition-featured-article > img {
+    transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .nutrition-hero-visual:hover img,
+  .nutrition-featured-article:hover > img {
+    transform: scale(1.018);
+  }
+}
+
+@media (max-width: 1000px) {
+  .nutrition-article-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-hero-visual {
+    width: min(100%, 42rem);
+    order: -1;
+  }
+
+  .nutrition-article-layout {
+    gap: 2.5rem;
+    grid-template-columns: minmax(12rem, 0.28fr) minmax(0, 0.72fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .nutrition-hub-hero {
+    margin-top: 0.75rem;
+    padding: 3.4rem 1.25rem;
+  }
+
+  .nutrition-hub-hero h1 {
+    font-size: clamp(2.35rem, 13vw, 3.45rem);
+  }
+
+  .nutrition-hub-entry,
+  .nutrition-featured-article {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .nutrition-hub-entry .button {
+    width: 100%;
+  }
+
+  .nutrition-featured-article > img {
+    width: 100%;
+    min-height: 17rem;
+    order: -1;
+    aspect-ratio: 3 / 2;
+  }
+
+  .nutrition-article-hero {
+    padding: 1rem 1rem 2rem;
+    gap: 1.8rem;
+  }
+
+  .nutrition-article-heading h1 {
+    font-size: clamp(3.25rem, 19vw, 5rem);
+  }
+
+  .nutrition-publication-meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nutrition-article-layout {
+    display: block;
+    padding-top: 2.5rem;
+  }
+
+  .nutrition-toc {
+    position: static;
+    max-height: none;
+    margin-bottom: 3rem;
+  }
+
+  .nutrition-form-grid,
+  .nutrition-risk-compare {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-table-wrap {
+    margin-inline: -0.1rem;
+    scroll-snap-type: x proximity;
+  }
+
+  .nutrition-table th,
+  .nutrition-table td {
+    scroll-snap-align: start;
+  }
+
+  .nutrition-article-paths {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 390px) {
+  .nutrition-hub-hero,
+  .nutrition-article {
+    width: min(100% - 1.25rem, var(--container));
+  }
+
+  .nutrition-article-hero {
+    border-radius: 1.15rem;
+  }
+
+  .nutrition-hero-visual {
+    border-radius: 0.9rem;
+  }
+
+  .nutrition-form-grid > div,
+  .nutrition-risk-compare > div,
+  .nutrition-essential,
+  .nutrition-note,
+  .nutrition-pregnancy-alert,
+  .nutrition-equivalence {
+    padding: 1.15rem;
+  }
+}
+
 /* Identidade oficial Clever Souza — Eixo Vivo */
 
 .site-header {
