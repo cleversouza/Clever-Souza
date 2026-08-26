@@ -10,7 +10,7 @@ const revealSelectors = [
   ".page-hero > *",
   ".about-hero > *",
   ".massotherapy-brand-copy > *",
-  ".massotherapy-brand-logo",
+  ".massotherapy-brand-portrait",
   ".massotherapy-summary > *",
   ".section-heading",
   ".card-grid > *",

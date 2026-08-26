@@ -2889,29 +2889,277 @@ p {
   color: #fff;
 }
 
-.massotherapy-brand-logo {
+.massotherapy-brand-portrait {
   display: grid;
   position: relative;
   min-height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 72% 24%, rgb(112 216 232 / 15%), transparent 34%),
+    #071a33;
+  isolation: isolate;
   place-items: center;
 }
 
-.massotherapy-brand-logo::before {
+.massotherapy-brand-portrait::before {
   position: absolute;
-  width: min(34rem, 86%);
-  aspect-ratio: 1;
-  border: 1px solid rgb(112 216 232 / 22%);
-  border-radius: 50%;
+  z-index: 1;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgb(6 20 44 / 68%) 0%, transparent 32%),
+    linear-gradient(180deg, transparent 70%, rgb(6 20 44 / 52%) 100%);
   content: "";
-  box-shadow: 0 0 80px rgb(112 216 232 / 9%);
+  pointer-events: none;
 }
 
-.massotherapy-brand-logo img {
+.massotherapy-brand-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.protocol-section {
+  overflow: hidden;
+}
+
+.protocol-carousel {
   position: relative;
-  width: min(29rem, 82%);
+  width: min(100%, 68rem);
+  margin: 0 auto;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.protocol-carousel-stage {
+  position: relative;
+  min-height: 41rem;
+  overflow: visible;
+}
+
+.protocol-card-shell {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(31rem, calc(100% - 8rem));
+  min-height: 0;
+  padding: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid rgb(185 220 235 / 32%);
+  border-radius: var(--radius-lg);
+  background: var(--color-brand-deep);
+  box-shadow: 0 30px 78px rgb(7 26 51 / 24%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-50%, 1.35rem, 0) scale(0.78);
+  transform-origin: center;
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 520ms ease;
+  flex-direction: column;
+}
+
+.protocol-card-shell[data-position="0"] {
+  z-index: 5;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate3d(-50%, 0, 0) scale(1);
+}
+
+.protocol-card-shell[data-position="-1"],
+.protocol-card-shell[data-position="1"] {
+  z-index: 3;
+  opacity: 0.54;
+  pointer-events: auto;
+  filter: saturate(0.72);
+}
+
+.protocol-card-shell[data-position="-1"] {
+  transform: translate3d(-91%, 1rem, 0) scale(0.88);
+}
+
+.protocol-card-shell[data-position="1"] {
+  transform: translate3d(-9%, 1rem, 0) scale(0.88);
+}
+
+.protocol-card-shell[data-position="-2"] {
+  z-index: 1;
+  opacity: 0.12;
+  transform: translate3d(-112%, 1.7rem, 0) scale(0.78);
+}
+
+.protocol-card-shell[data-position="2"] {
+  z-index: 1;
+  opacity: 0.12;
+  transform: translate3d(12%, 1.7rem, 0) scale(0.78);
+}
+
+.protocol-card-select {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.protocol-card-select:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: -6px;
+}
+
+.protocol-card-shell[data-active="true"] .protocol-card-select {
+  cursor: default;
+}
+
+.protocol-card-image {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.protocol-card-overlay {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(7 26 51 / 14%) 0%, rgb(7 26 51 / 24%) 42%, rgb(7 26 51 / 78%) 68%, rgb(7 26 51 / 98%) 100%),
+    linear-gradient(90deg, rgb(7 26 51 / 14%), transparent 58%);
+}
+
+.protocol-card-logo {
+  position: absolute;
+  z-index: 2;
+  top: clamp(1.65rem, 4vw, 2.2rem);
+  left: clamp(1.65rem, 4vw, 2.2rem);
+  width: min(18rem, 62%);
   height: auto;
-  filter: drop-shadow(0 22px 42px rgb(0 0 0 / 20%));
-  mix-blend-mode: normal;
+  filter: drop-shadow(0 3px 8px rgb(0 8 20 / 34%));
+}
+
+.protocol-card-copy {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  margin-top: auto;
+  padding: clamp(2rem, 5vw, 3rem);
+  color: #fff;
+  text-shadow: 0 3px 10px rgb(0 8 20 / 45%);
+}
+
+.protocol-card-copy .card-kicker {
+  width: fit-content;
+  margin-bottom: 0.9rem;
+  color: var(--color-brand-cyan);
+  font-size: clamp(0.75rem, 1.3vw, 0.88rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.protocol-card-copy h3 {
+  max-width: none;
+  margin-bottom: 1.2rem;
+  color: #fff;
+  font-size: clamp(2.3rem, 5vw, 3.65rem);
+  line-height: 1.03;
+}
+
+.protocol-card-copy > p:not(.card-kicker) {
+  max-width: 33rem;
+  margin: 0;
+  color: rgb(248 250 252 / 97%);
+  font-size: clamp(1.08rem, 1.8vw, 1.28rem);
+  line-height: 1.62;
+}
+
+.protocol-carousel-controls {
+  display: flex;
+  position: relative;
+  z-index: 7;
+  margin-top: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.protocol-arrow {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-brand-primary);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  place-items: center;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.protocol-arrow:hover {
+  border-color: var(--color-brand-primary);
+  background: #f5fafc;
+  transform: translateY(-2px);
+}
+
+.protocol-arrow:focus-visible,
+.protocol-pagination button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.protocol-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.protocol-pagination button {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  place-items: center;
+}
+
+.protocol-pagination button span {
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 999px;
+  background: #9fb4c2;
+  transition: width 220ms ease, background-color 220ms ease;
+}
+
+.protocol-pagination button[aria-current="true"] span {
+  width: 1.35rem;
+  background: var(--color-brand-primary);
+}
+
+.protocol-carousel-status {
+  margin: 0.75rem 0 0;
+  color: var(--color-text-soft);
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+.protocol-editorial-link {
+  margin-top: 2rem;
+  text-align: center;
 }
 
 .technique-grid {
@@ -3366,13 +3614,18 @@ p {
     font-size: clamp(2.25rem, 11vw, 3.1rem);
   }
 
-  .massotherapy-brand-logo {
+  .massotherapy-brand-portrait {
     min-height: 32rem;
     order: -1;
   }
 
-  .massotherapy-brand-logo img {
-    width: min(27rem, 72%);
+  .massotherapy-brand-portrait::before {
+    background: linear-gradient(180deg, rgb(6 20 44 / 4%) 0%, transparent 58%, #06142c 100%);
+  }
+
+  .massotherapy-brand-portrait img {
+    object-fit: cover;
+    object-position: center 24%;
   }
 
   .technique-grid,
@@ -3408,12 +3661,12 @@ p {
     margin-top: 1rem;
   }
 
-  .massotherapy-brand-logo {
+  .massotherapy-brand-portrait {
     min-height: 25rem;
   }
 
-  .massotherapy-brand-logo img {
-    width: min(16rem, 64%);
+  .massotherapy-brand-portrait img {
+    object-position: center 22%;
   }
 
   .massotherapy-brand-copy {
@@ -3435,6 +3688,50 @@ p {
 
   .technique-card-copy {
     padding: 1.25rem;
+  }
+
+  .protocol-carousel-stage {
+    min-height: min(40.5rem, calc((100vw - 3rem) * 1.25 + 1.5rem));
+  }
+
+  .protocol-card-shell {
+    width: min(31rem, calc(100% - 3rem));
+    min-height: 0;
+    padding: 0;
+  }
+
+  .protocol-card-shell[data-position="-1"] {
+    transform: translate3d(-86%, 0.9rem, 0) scale(0.88);
+  }
+
+  .protocol-card-shell[data-position="1"] {
+    transform: translate3d(-14%, 0.9rem, 0) scale(0.88);
+  }
+
+  .protocol-card-shell[data-position="-2"] {
+    transform: translate3d(-105%, 1.5rem, 0) scale(0.78);
+  }
+
+  .protocol-card-shell[data-position="2"] {
+    transform: translate3d(5%, 1.5rem, 0) scale(0.78);
+  }
+
+  .protocol-card-logo {
+    top: 1.5rem;
+    left: 1.5rem;
+    width: min(16rem, 64%);
+  }
+
+  .protocol-card-copy {
+    padding: 1.65rem;
+  }
+
+  .protocol-card-copy h3 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .protocol-card-copy > p:not(.card-kicker) {
+    font-size: clamp(0.98rem, 4.2vw, 1.14rem);
   }
 
   .editorial-hub-hero {
@@ -3485,8 +3782,15 @@ p {
 
 @media (prefers-reduced-motion: reduce) {
   .technique-card-media img,
-  .editorial-card-media img {
+  .editorial-card-media img,
+  .protocol-card-shell,
+  .protocol-arrow,
+  .protocol-pagination button span {
     transition: none;
+  }
+
+  .protocol-arrow:hover {
+    transform: none;
   }
 }
 
@@ -3542,11 +3846,6 @@ p {
 
 .massotherapy-brand-hero {
   background-size: 118% 118%;
-}
-
-.massotherapy-brand-logo::before {
-  background: radial-gradient(circle, rgb(112 216 232 / 6%), transparent 68%);
-  animation: massotherapy-breathe 16s ease-in-out infinite alternate;
 }
 
 .technique-card-media,
@@ -3740,9 +4039,6 @@ p {
     background-size: 100% 100%;
   }
 
-  .massotherapy-brand-logo::before {
-    animation-duration: 22s;
-  }
 }
 
 @media (max-width: 390px) {

@@ -2,7 +2,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { MobileMenu } from "./mobile-menu";
-import { techniqueArticles } from "./massoterapia/article-data";
+import { ProtocolCarousel } from "./massoterapia/protocol-carousel";
 
 const SITE_URL = "https://www.cleversouza.com";
 const PERSON_ID = `${SITE_URL}/sobre#person`;
@@ -425,67 +425,6 @@ function ServiceCards({ limit }: { limit?: number }) {
   );
 }
 
-function TechniqueImage({
-  stem,
-  alt,
-  eager = false,
-}: {
-  stem: string;
-  alt: string;
-  eager?: boolean;
-}) {
-  return (
-    <picture>
-      <source
-        type="image/webp"
-        srcSet={`/massoterapia/tecnicas/${stem}-540.webp 540w, /massoterapia/tecnicas/${stem}-1080.webp 1080w`}
-        sizes="(max-width: 720px) 92vw, (max-width: 1100px) 44vw, 350px"
-      />
-      <img
-        src={`/massoterapia/tecnicas/${stem}-1080.webp`}
-        alt={alt}
-        width="1080"
-        height="1080"
-        loading={eager ? "eager" : "lazy"}
-        fetchPriority={eager ? "high" : "auto"}
-        decoding="async"
-      />
-    </picture>
-  );
-}
-
-function TechniqueCards() {
-  return (
-    <div className="technique-grid">
-      {techniqueArticles.filter((article) => article.showInTechniqueCards !== false).map((article) => (
-        <article className="technique-card" key={article.slug}>
-          <a
-            className="technique-card-media"
-            href={`/massoterapia/conteudo/${article.slug}`}
-            aria-label={`Ler sobre ${article.technique}`}
-            data-event="select_massotherapy_technique"
-            data-service={article.technique}
-          >
-            <TechniqueImage stem={article.imageStem} alt={article.imageAlt} />
-          </a>
-          <div className="technique-card-copy">
-            <p className="card-kicker">{article.characteristic}</p>
-            <h3>{article.technique}</h3>
-            <p>{article.description}</p>
-            <a
-              href={`/massoterapia/conteudo/${article.slug}`}
-              data-event="select_massotherapy_technique"
-              data-service={article.technique}
-            >
-              Entender a técnica <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </article>
-      ))}
-    </div>
-  );
-}
-
 function ArticleCards({ limit }: { limit?: number }) {
   const list = limit ? articles.slice(0, limit) : articles;
   return (
@@ -710,7 +649,11 @@ function HealthNote() {
 
 export function MassotherapyPage() {
   const pageFaq = [
-    homeFaq[0],
+    {
+      question: "Qual Protocolo Clever devo escolher?",
+      answer:
+        "Você não precisa decidir sozinho. O ponto de partida é explicar o que procura, suas preferências, rotina e limites. O protocolo e os recursos que farão parte da sessão podem ser definidos depois dessa conversa.",
+    },
     homeFaq[1],
     homeFaq[4],
     homeFaq[5],
@@ -746,7 +689,7 @@ export function MassotherapyPage() {
             containedInPlace: { "@type": "State", name: "Paraná" },
           },
           description:
-            "Atendimento de massoterapia em Curitiba com técnicas adaptadas ao objetivo relatado, às preferências e aos cuidados necessários.",
+            "Protocolos Clever de massoterapia em Curitiba, adaptados ao objetivo relatado, às preferências e aos cuidados necessários.",
         }}
       />
       <section className="massotherapy-brand-hero">
@@ -754,23 +697,23 @@ export function MassotherapyPage() {
           <p className="eyebrow">Massoterapia em Curitiba</p>
           <h1>Cuidado corporal com clareza, escuta e adaptação</h1>
           <p>
-            Conheça as técnicas, entenda como uma sessão funciona e veja os
-            cuidados necessários antes do primeiro contato — sem promessas e
-            sem autodiagnóstico.
+            Conheça os Protocolos Clever, entenda como uma sessão funciona e
+            veja os cuidados necessários antes do primeiro contato — sem
+            promessas e sem autodiagnóstico.
           </p>
           <div className="button-row">
             <WhatsAppCta location="massotherapy_hero" />
-            <a className="button button-secondary" href="#tecnicas">
-              Conhecer as técnicas
+            <a className="button button-secondary" href="#protocolos">
+              Conhecer os protocolos
             </a>
           </div>
         </div>
-        <div className="massotherapy-brand-logo">
+        <div className="massotherapy-brand-portrait">
           <img
-            src="/massoterapia/brand/logo-massoterapia-transparente.png"
-            alt="Símbolo CS e nome Massoterapia"
-            width="640"
-            height="738"
+            src="/massoterapia/portrait/clever-souza-jaleco.webp"
+            alt="Clever Souza usando jaleco branco"
+            width="1024"
+            height="1536"
             fetchPriority="high"
             decoding="async"
           />
@@ -784,24 +727,24 @@ export function MassotherapyPage() {
         </div>
         <p>
           O atendimento considera os objetivos relatados, as preferências, os
-          limites e os cuidados necessários para definir a abordagem mais
-          adequada a cada sessão.
+          limites e os cuidados necessários para definir o protocolo e adaptar
+          cada etapa da sessão.
         </p>
       </section>
 
-      <section className="section section-soft" id="tecnicas">
+      <section className="section section-soft protocol-section" id="protocolos">
         <SectionHeading
-          eyebrow="Seis técnicas"
-          title="Experiências diferentes, escolha orientada"
-          text="Cada técnica possui ritmo e recursos próprios. A escolha considera objetivo, preferências, mobilidade e cuidados necessários."
+          eyebrow="Protocolos Clever"
+          title="Cinco experiências, uma escolha orientada"
+          text="Os protocolos organizam a experiência de acordo com o momento, as preferências e os cuidados necessários. Técnicas e recursos podem ser adaptados ao longo da sessão."
         />
-        <TechniqueCards />
-        <div className="section-action">
+        <ProtocolCarousel />
+        <div className="section-action protocol-editorial-link">
           <Link
             className="text-link"
             href="/massoterapia/conteudo"
           >
-            Acessar os artigos das técnicas <span aria-hidden="true">→</span>
+            Conhecer técnicas, cuidados e conteúdos educativos <span aria-hidden="true">→</span>
           </Link>
         </div>
       </section>
@@ -814,9 +757,9 @@ export function MassotherapyPage() {
         />
         <ol className="process-list">
           {[
-            ["Explique o que procura", "Conte seu objetivo geral sem precisar escolher uma técnica."],
+            ["Explique o que procura", "Conte seu objetivo geral sem precisar escolher um protocolo sozinho."],
             ["Converse sobre cuidados", "Preferências, limites e situações relevantes são considerados."],
-            ["Defina o atendimento", "Formato, abordagem e intensidade inicial são combinados."],
+            ["Defina o protocolo", "Formato, etapas e intensidade inicial são combinados."],
             ["Ajuste durante a sessão", "Pressão, ritmo e regiões podem ser adaptados a qualquer momento."],
           ].map(([title, text], index) => (
             <li key={title}>
@@ -864,12 +807,12 @@ export function MassotherapyPage() {
             reabilitação clínica ou tratamento de doenças.
           </p>
 
-          <h2>Personalização e escolha da técnica</h2>
+          <h2>Personalização e escolha do protocolo</h2>
           <p>
-            O nome da técnica é apenas uma parte da decisão. Intensidade, ritmo,
-            áreas trabalhadas, posição, tempo e tolerância individual também
-            importam. Quando necessário, recursos de mais de uma abordagem podem
-            ser combinados dentro do escopo profissional.
+            O protocolo organiza a experiência, mas não torna a sessão rígida.
+            Intensidade, ritmo, áreas trabalhadas, posição, tempo e tolerância
+            individual também importam. Quando necessário, recursos de mais de
+            uma técnica podem ser combinados dentro do escopo profissional.
           </p>
 
           <h2 id="cuidados-gerais">Cuidados e limitações</h2>
@@ -910,9 +853,10 @@ export function MassotherapyPage() {
           <div className="aside-card">
             <strong>Próximo passo</strong>
             <p>
-              Veja como as diferentes técnicas são apresentadas de forma simples.
+              Compare os cinco Protocolos Clever e veja qual experiência combina
+              melhor com o momento atual.
             </p>
-            <a href="/servicos">Explorar serviços</a>
+            <a href="#protocolos">Explorar os protocolos</a>
           </div>
         </aside>
       </section>
@@ -950,7 +894,10 @@ export function MassotherapyPage() {
           Instagram da Clever Massoterapia
         </a>
       </section>
-      <FinalCta />
+      <FinalCta
+        title="Converse antes de escolher o protocolo"
+        text="Tire dúvidas e explique o que procura. O protocolo e as adaptações da sessão podem ser definidos com mais clareza a partir dessa conversa."
+      />
     </PageShell>
   );
 }
@@ -1903,16 +1850,19 @@ export function ArticlePage({ slug }: { slug: string }) {
   );
 }
 
-function FinalCta() {
+function FinalCta({
+  title = "Converse antes de escolher a técnica",
+  text = "Tire dúvidas e explique o que procura. O atendimento pode ser definido de forma mais simples e segura a partir dessa conversa.",
+}: {
+  title?: string;
+  text?: string;
+}) {
   return (
     <section className="final-cta" id="contato-massoterapia">
       <div>
         <p className="eyebrow">Próximo passo</p>
-        <h2>Converse antes de escolher a técnica</h2>
-        <p>
-          Tire dúvidas e explique o que procura. O atendimento pode ser definido
-          de forma mais simples e segura a partir dessa conversa.
-        </p>
+        <h2>{title}</h2>
+        <p>{text}</p>
       </div>
       <WhatsAppCta location="final_cta" />
     </section>

@@ -18,6 +18,7 @@ export function AnalyticsBridge() {
       "/sobre": "view_about",
       "/contato": "view_contact",
       "/massoterapia": "view_massotherapy",
+      "/massoterapia/reflexologiapodal1": "view_reflexology_landing",
       "/massoterapia/conteudo": "view_massotherapy_content_hub",
       "/massoterapia-curitiba": "view_massotherapy",
       "/servicos": "view_massotherapy_services",
@@ -29,9 +30,20 @@ export function AnalyticsBridge() {
         page_path: pathname,
       });
     } else if (pageEvents[pathname]) {
+      const campaignParameters =
+        pathname === "/massoterapia/reflexologiapodal1"
+          ? Object.fromEntries(
+              ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]
+                .map((key) => [key, new URLSearchParams(window.location.search).get(key)])
+                .filter(([, value]) => Boolean(value)),
+            )
+          : {};
+
       window.dataLayer?.push({
         event: pageEvents[pathname],
         page_path: pathname,
+        page_referrer: document.referrer || undefined,
+        ...campaignParameters,
       });
     }
 

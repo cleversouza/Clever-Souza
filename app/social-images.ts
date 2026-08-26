@@ -8,6 +8,7 @@ const routeImages: Record<string, string> = {
   "/politica-de-privacidade": "politica-de-privacidade",
   "/termos-de-uso": "termos-de-uso",
   "/massoterapia": "massoterapia",
+  "/massoterapia/quick-massage-corporativo": "quick-massage-corporativo",
   "/massoterapia-curitiba": "massoterapia-curitiba",
   "/servicos": "servicos",
   "/conteudos": "conteudos",

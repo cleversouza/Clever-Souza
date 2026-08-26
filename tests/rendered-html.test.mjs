@@ -5,6 +5,7 @@ import test from "node:test";
 const publicRoutes = [
   "/",
   "/massoterapia",
+  "/massoterapia/quick-massage-corporativo",
   "/massoterapia/conteudo",
   "/massoterapia/conteudo/massagem-relaxante-como-funciona-e-cuidados",
   "/massoterapia/conteudo/shiatsu-como-funciona-e-cuidados",
@@ -82,7 +83,7 @@ test("uses complete official-domain social metadata on every public route", asyn
 
     assert.match(html, new RegExp(`<link[^>]+rel=["']canonical["'][^>]+href=["']${canonicalPattern}["']`, "i"));
     assert.match(html, new RegExp(`<meta(?=[^>]+property=["']og:url["'])(?=[^>]+content=["']${pageUrlPattern}["'])[^>]*>`, "i"));
-    assert.match(html, /<meta(?=[^>]+property=["']og:image["'])(?=[^>]+content=["']https:\/\/www\.cleversouza\.com\/social\/[^"']+\.png["'])[^>]*>/i);
+    assert.match(html, /<meta(?=[^>]+property=["']og:image["'])(?=[^>]+content=["']https:\/\/www\.cleversouza\.com\/social\/[^"']+\.(?:png|jpe?g)(?:\?[^"']*)?["'])[^>]*>/i);
     assert.match(html, /<meta(?=[^>]+property=["']og:image:width["'])(?=[^>]+content=["']1200["'])[^>]*>/i);
     assert.match(html, /<meta(?=[^>]+property=["']og:image:height["'])(?=[^>]+content=["']630["'])[^>]*>/i);
     assert.match(html, /<meta(?=[^>]+name=["']twitter:card["'])(?=[^>]+content=["']summary_large_image["'])[^>]*>/i);
@@ -128,13 +129,109 @@ test("positions the home page around the Clever Souza brand", async () => {
 test("keeps massotherapy as an independent front", async () => {
   const html = await render("/massoterapia");
   assert.match(html, /<h1[^>]*>Cuidado corporal com clareza/i);
-  assert.match(html, /logo-massoterapia-transparente\.png/i);
+  assert.match(html, /massoterapia\/portrait\/clever-souza-jaleco\.webp/i);
+  assert.match(html, /Clever Souza usando jaleco branco/i);
+  assert.doesNotMatch(html, /logo-massoterapia-transparente\.png/i);
   assert.match(html, /Instagram da Clever Massoterapia/i);
   assert.match(html, /https:\/\/wa\.me\/5541992051173/i);
   assert.doesNotMatch(html, /Primeira frente|marca pessoal/i);
   assert.match(html, /application\/ld\+json/i);
-  assert.equal((html.match(/class="technique-card"/g) ?? []).length, 6);
-  assert.doesNotMatch(html, /technique-card[\s\S]*muitas-horas-sentado-desconforto/i);
+  assert.match(html, /id="protocolos"/i);
+  assert.equal((html.match(/class="protocol-card-shell"/g) ?? []).length, 5);
+  assert.match(html, /Clever Recharge/i);
+  assert.match(html, /Clever Reset/i);
+  assert.match(html, /Clever Release/i);
+  assert.match(html, /Clever Flow/i);
+  assert.match(html, /Clever Restore/i);
+  assert.match(html, /massoterapia\/protocolos\/clever-recharge\.webp/i);
+  assert.match(html, /massoterapia\/protocolos\/clever-reset\.webp/i);
+  assert.match(html, /massoterapia\/protocolos\/clever-release\.webp/i);
+  assert.match(html, /massoterapia\/protocolos\/clever-flow\.webp/i);
+  assert.match(html, /massoterapia\/protocolos\/clever-restore\.webp/i);
+  assert.match(html, /logo-horizontal-branca\.svg/i);
+  assert.doesNotMatch(html, /protocol-card-number/i);
+  assert.match(html, /href="\/massoterapia\/conteudo"/i);
+  assert.match(html, /Qual Protocolo Clever devo escolher\?/i);
+  assert.match(html, /Converse antes de escolher o protocolo/i);
+  assert.doesNotMatch(html, /id="tecnicas"/i);
+});
+
+test("renders the Quick Massage corporate landing with a responsible NR-1 context", async () => {
+  const html = await render("/massoterapia/quick-massage-corporativo");
+  assert.match(html, /<h1[^>]*>Uma pausa planejada para empresas em um novo contexto de/i);
+  assert.match(html, /Quick Massage para empresas · Curitiba/i);
+  assert.match(html, /Esta página não apresenta Quick Massage como solução isolada de conformidade/i);
+  assert.match(html, /26 de maio de 2026/i);
+  assert.match(html, /NR-1 oficial · MTE/i);
+  assert.match(html, /Manual GRO\/PGR · MTE/i);
+  assert.match(html, /Guia psicossocial · MTE/i);
+  assert.match(html, /Quick Massage realizada em cadeira específica/i);
+  assert.match(html, /Enviar briefing pelo WhatsApp/i);
+  assert.match(html, /Evite inserir dados de saúde de colaboradores/i);
+  assert.match(html, /representação ilustrativa da frequência informada/i);
+  assert.match(html, /https:\/\/wa\.me\/5541992051173/i);
+  assert.match(html, /social\/quick-massage-corporativo-og-v3\.png/i);
+  assert.match(html, /property="og:image:type"[^>]+content="image\/png"/i);
+  assert.match(html, /name="og:image:secure_url"[^>]+content="https:\/\/www\.cleversouza\.com\/social\/quick-massage-corporativo-og-v3\.png"/i);
+  assert.match(html, /rel="canonical"[^>]*href="https:\/\/www\.cleversouza\.com\/massoterapia\/quick-massage-corporativo"/i);
+  assert.doesNotMatch(html, /Quick Massage como solução isolada de conformidade com a NR-1/i);
+});
+
+test("renders the isolated Reflexologia campaign landing without parallel exits", async () => {
+  const pathname = "/massoterapia/reflexologiapodal1";
+  const html = await render(pathname);
+  assert.match(html, /<h1[^>]*>Seu dia passa inteiro/i);
+  assert.match(html, /pelos seus pés/i);
+  assert.match(html, /A pausa começa onde o dia se apoia/i);
+  assert.match(html, /Reflexologia Podal\.\s*<span>Uma pausa que começa por baixo/i);
+  assert.match(html, /Intensidade não precisa significar excesso/i);
+  assert.doesNotMatch(html, /Todo deslocamento deixa uma história silenciosa/i);
+  assert.doesNotMatch(html, /Não é um diagnóstico/i);
+  assert.doesNotMatch(html, /01 · Sustentação|06 · Reciprocidade/i);
+  assert.match(html, />Sustentação<\/p>/i);
+  assert.match(html, />Reciprocidade<\/p>/i);
+  assert.match(html, /Como a experiência é conduzida/i);
+  assert.match(html, />Preferências<\/h3>/i);
+  assert.match(html, />Ajuste<\/h3>/i);
+  assert.match(html, /Esta é uma experiência de bem-estar e autocuidado\. Ela não substitui avaliação, diagnóstico ou tratamento realizado por profissional habilitado\./i);
+  assert.match(html, /O dia exigiu dos seus pés\. Agora, a atenção volta para eles\./i);
+  assert.equal((html.match(/Quero conversar sobre a sessão/gi) ?? []).length, 2);
+  assert.match(html, /https:\/\/wa\.me\/5541992051173/i);
+  const ctaLinks = [
+    ...html.matchAll(
+      /<a(?=[^>]*href="([^"]*wa\.me\/5541992051173[^"]*)")(?=[^>]*data-event="click_reflexology_whatsapp")(?=[^>]*data-location="(reflexology_(?:reveal|final)_cta)")[^>]*>/gi,
+    ),
+  ];
+  assert.equal(ctaLinks.length, 2);
+  assert.equal(new Set(ctaLinks.map((match) => match[1])).size, 1);
+  assert.deepEqual(
+    new Set(ctaLinks.map((match) => match[2])),
+    new Set(["reflexology_reveal_cta", "reflexology_final_cta"]),
+  );
+  assert.match(html, /brand\/logo-horizontal-branca\.svg/i);
+  assert.match(html, /massoterapia\/reflexologia\/reflexologia-hero\.avif/i);
+  assert.match(html, /massoterapia\/reflexologia\/reflexologia-experiencia\.avif/i);
+  assert.match(html, /social\/reflexologia-podal-whatsapp-v3\.png/i);
+  assert.match(html, /property="og:image"[^>]+content="https:\/\/www\.cleversouza\.com\/social\/reflexologia-podal-whatsapp-v3\.png"/i);
+  assert.match(html, /property="og:image:width"[^>]+content="1200"/i);
+  assert.match(html, /property="og:image:height"[^>]+content="630"/i);
+  assert.match(html, /name="twitter:card"[^>]+content="summary_large_image"/i);
+  assert.match(html, /name="twitter:image"[^>]+content="https:\/\/www\.cleversouza\.com\/social\/reflexologia-podal-whatsapp-v3\.png"/i);
+  const socialImage = await readFile(
+    new URL("../public/social/reflexologia-podal-whatsapp-v3.png", import.meta.url),
+  );
+  assert.equal(socialImage.readUInt32BE(16), 1200);
+  assert.equal(socialImage.readUInt32BE(20), 630);
+  assert.equal(socialImage[25], 3);
+  assert.ok(socialImage.length < 300_000);
+  assert.match(html, /rel="canonical"[^>]*href="https:\/\/www\.cleversouza\.com\/massoterapia\/reflexologiapodal1"/i);
+  assert.match(html, /<meta(?=[^>]*\bname=["']robots["'])(?=[^>]*\bcontent=["'][^"']*noindex[^"']*["'])[^>]*>/i);
+  assert.doesNotMatch(html, /<header\b/i);
+  assert.doesNotMatch(html, /<nav\b/i);
+  assert.doesNotMatch(html, /<footer\b/i);
+  assert.doesNotMatch(html, /breadcrumb/i);
+  assert.doesNotMatch(html, /href="\/(?:massoterapia|sobre|contato|conteudos|servicos|)"/i);
+  assert.doesNotMatch(html, /cura|desintoxica|estimula órgãos|trata ansiedade|trata insônia/i);
 });
 
 test("removes content from the global navigation", async () => {
