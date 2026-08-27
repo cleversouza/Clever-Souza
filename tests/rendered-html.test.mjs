@@ -7,7 +7,18 @@ const publicRoutes = [
   "/nutricao",
   "/nutricao/vitaminas",
   "/nutricao/vitaminas/vitamina-a",
+  "/nutricao/vitaminas/vitamina-b1",
+  "/nutricao/vitaminas/vitamina-b2",
+  "/nutricao/vitaminas/vitamina-b3",
+  "/nutricao/vitaminas/vitamina-b5",
+  "/nutricao/vitaminas/vitamina-b6",
+  "/nutricao/vitaminas/vitamina-b7",
+  "/nutricao/vitaminas/vitamina-b9",
+  "/nutricao/vitaminas/vitamina-b12",
   "/nutricao/vitaminas/vitamina-c",
+  "/nutricao/vitaminas/vitamina-d",
+  "/nutricao/vitaminas/vitamina-e",
+  "/nutricao/vitaminas/vitamina-k",
   "/massoterapia",
   "/massoterapia/quick-massage-corporativo",
   "/massoterapia/conteudo",
@@ -169,6 +180,17 @@ test("renders the nutrition library and the vitamin A guide with responsible hea
   assert.match(vitamins, /<h1[^>]*>Vitaminas sem atalhos ou promessas<\/h1>/i);
   assert.match(vitamins, /href="\/nutricao\/vitaminas\/vitamina-a"/i);
   assert.match(vitamins, /href="\/nutricao\/vitaminas\/vitamina-c"/i);
+  for (const vitamin of ["b1", "b2", "b3", "b5", "b6", "b7", "b9", "b12"]) {
+    assert.match(vitamins, new RegExp(`href="/nutricao/vitaminas/vitamina-${vitamin}"`, "i"));
+  }
+  for (const vitamin of ["d", "e", "k"]) {
+    assert.match(vitamins, new RegExp(`href="/nutricao/vitaminas/vitamina-${vitamin}"`, "i"));
+  }
+  const vitaminAIndex = vitamins.indexOf('href="/nutricao/vitaminas/vitamina-a"');
+  const complexBIndex = vitamins.indexOf('id="complexo-b-title"');
+  const vitaminCIndex = vitamins.indexOf('href="/nutricao/vitaminas/vitamina-c"');
+  const vitaminDIndex = vitamins.indexOf('href="/nutricao/vitaminas/vitamina-d"');
+  assert.ok(vitaminAIndex < complexBIndex && complexBIndex < vitaminCIndex && vitaminCIndex < vitaminDIndex);
 
   const html = await render("/nutricao/vitaminas/vitamina-a");
   assert.match(html, /<h1[^>]*>Vitamina A<\/h1>/i);
@@ -207,6 +229,53 @@ test("renders the nutrition library and the vitamin A guide with responsible hea
     vitaminC,
     /Clever Souza.{0,40}nutricionista|consulta nutricional|comprar vitamina C|Omnilife|cura resfriado|previne resfriado/i,
   );
+
+  const complexB = [
+    ["b1", "Vitamina B1", "1,2 mg"],
+    ["b2", "Vitamina B2", "1,2 mg"],
+    ["b3", "Vitamina B3", "15 mg de NE"],
+    ["b5", "Vitamina B5", "5 mg"],
+    ["b6", "Vitamina B6", "1,3 mg"],
+    ["b7", "Vitamina B7", "30 µg"],
+    ["b9", "Vitamina B9", "400 µg de DFE"],
+    ["b12", "Vitamina B12", "2,4 µg"],
+  ];
+
+  for (const [slug, title, vdr] of complexB) {
+    const page = await render(`/nutricao/vitaminas/vitamina-${slug}`);
+    assert.match(page, new RegExp(`<h1[^>]*>${title}</h1>`, "i"));
+    assert.match(page, new RegExp(vdr.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+    assert.match(page, /Valor Diário não é necessidade individual/i);
+    assert.match(page, /Como o status nutricional é avaliado/i);
+    assert.match(page, /O que a evidência sustenta/i);
+    assert.match(page, /não diagnostica deficiência, não prescreve suplementação/i);
+    assert.match(page, /Anvisa — Instrução Normativa nº 75\/2020/i);
+    assert.match(page, /NIH Office of Dietary Supplements/i);
+    assert.match(page, new RegExp(`property="og:image"[^>]+content="https://www\\.cleversouza\\.com/social/vitamina-${slug}\\.png"`, "i"));
+    assert.doesNotMatch(page, /consulta nutricional|Omnilife|comprar vitamina/i);
+  }
+
+  const remaining = [
+    ["d", "Vitamina D", "15 µg", "25\\(OH\\)D", "vitamina-d-fontes\\.webp"],
+    ["e", "Vitamina E", "15 mg", "alfa-tocoferol", "vitamina-e-fontes\\.webp"],
+    ["k", "Vitamina K", "120 µg", "varfarina", "vitamina-k-fontes\\.webp"],
+  ];
+
+  for (const [slug, title, vdr, criticalTopic, image] of remaining) {
+    const page = await render(`/nutricao/vitaminas/vitamina-${slug}`);
+    assert.match(page, new RegExp(`<h1[^>]*>${title}</h1>`, "i"));
+    assert.match(page, new RegExp(vdr, "i"));
+    assert.match(page, new RegExp(criticalTopic, "i"));
+    assert.match(page, new RegExp(image, "i"));
+    assert.match(page, /Valor Diário não é necessidade individual/i);
+    assert.match(page, /Como o status nutricional é avaliado/i);
+    assert.match(page, /O que a evidência sustenta/i);
+    assert.match(page, /não diagnostica deficiência, não prescreve suplementação/i);
+    assert.match(page, /Anvisa — Instrução Normativa nº 75\/2020/i);
+    assert.match(page, /NIH Office of Dietary Supplements/i);
+    assert.match(page, new RegExp(`property="og:image"[^>]+content="https://www\\.cleversouza\\.com/social/vitamina-${slug}\\.png"`, "i"));
+    assert.doesNotMatch(page, /consulta nutricional|Omnilife|comprar vitamina|vitamina [DEK] cura|garante (?:prevenção|tratamento|benefício)/i);
+  }
 });
 
 test("renders the Quick Massage corporate landing with a responsible NR-1 context", async () => {

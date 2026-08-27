@@ -1946,6 +1946,174 @@ p {
   object-fit: cover;
 }
 
+.nutrition-b-library {
+  padding: clamp(2rem, 5vw, 4.5rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 92% 8%, rgb(112 216 232 / 10%), transparent 19rem),
+    linear-gradient(145deg, #f8fbfd, #fffaf3);
+}
+
+.nutrition-b-library-heading {
+  display: grid;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  align-items: end;
+  gap: 1.5rem 3rem;
+  grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 0.55fr);
+}
+
+.nutrition-b-library-heading h2,
+.nutrition-b-library-heading p {
+  margin-bottom: 0;
+}
+
+.nutrition-b-library-heading > p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.nutrition-b-index {
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.nutrition-b-index article {
+  display: grid;
+  padding: 1.6rem 0;
+  gap: 1.15rem;
+  border-top: 1px solid var(--color-border);
+  grid-template-columns: 3.2rem minmax(0, 1fr);
+}
+
+.nutrition-b-index article:nth-child(odd) {
+  padding-right: 1.5rem;
+}
+
+.nutrition-b-index article:nth-child(even) {
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--color-border);
+}
+
+.nutrition-b-index article > span {
+  color: var(--color-brand-primary);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.nutrition-b-index h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.25rem;
+}
+
+.nutrition-b-index p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.62;
+}
+
+.nutrition-b-index .text-link {
+  display: inline-flex;
+  margin-top: 0.8rem;
+  color: var(--color-brand-primary);
+  font-size: 0.88rem;
+  font-weight: 750;
+}
+
+.nutrition-vitamin-shelf {
+  padding: clamp(2rem, 5vw, 4.5rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 8% 92%, rgb(229 157 64 / 9%), transparent 20rem),
+    linear-gradient(145deg, #f8fbfd, #f3f7f8 62%, #fffaf3);
+}
+
+.nutrition-vitamin-shelf-heading {
+  display: grid;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  align-items: end;
+  gap: 1.5rem 3rem;
+  grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 0.55fr);
+}
+
+.nutrition-vitamin-shelf-heading h2,
+.nutrition-vitamin-shelf-heading p {
+  margin-bottom: 0;
+}
+
+.nutrition-vitamin-shelf-heading > p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.nutrition-vitamin-card-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.nutrition-vitamin-card {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.nutrition-vitamin-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.nutrition-vitamin-card > div {
+  position: relative;
+  padding: 1.5rem;
+}
+
+.nutrition-vitamin-card > div > span {
+  position: absolute;
+  top: -2.25rem;
+  right: 1rem;
+  display: grid;
+  width: 3.6rem;
+  height: 3.6rem;
+  border: 4px solid var(--color-surface);
+  border-radius: 50%;
+  background: var(--color-brand-deep);
+  box-shadow: var(--shadow-sm);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  place-items: center;
+}
+
+.nutrition-vitamin-card h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.35rem;
+}
+
+.nutrition-vitamin-card p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.nutrition-vitamin-card .text-link {
+  display: inline-flex;
+  margin-top: 1rem;
+  color: var(--color-brand-primary);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
 .nutrition-article {
   width: min(var(--container), calc(100% - 2rem));
   margin: 0 auto;
@@ -1977,6 +2145,103 @@ p {
   border-color: rgb(39 120 174 / 25%);
   border-left-color: #d66b35;
   background: linear-gradient(135deg, #eff8fb 0%, #fff8ef 100%);
+}
+
+.nutrition-article--b .nutrition-article-hero {
+  background:
+    radial-gradient(circle at 82% 18%, color-mix(in srgb, var(--b-accent) 17%, transparent), transparent 21rem),
+    radial-gradient(circle at 10% 8%, rgb(112 216 232 / 10%), transparent 22rem),
+    linear-gradient(135deg, #f8fbfd, #f1f6f8 58%, #fff9f0);
+}
+
+.nutrition-article--b .nutrition-essential {
+  border-color: color-mix(in srgb, var(--b-accent) 26%, transparent);
+  border-left-color: var(--b-accent);
+}
+
+.nutrition-article--fat-soluble .nutrition-article-hero {
+  background:
+    radial-gradient(circle at 12% 12%, rgb(112 216 232 / 10%), transparent 24rem),
+    radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--vitamin-accent) 14%, transparent), transparent 18rem),
+    linear-gradient(135deg, #f8fbfd, #eef5f7 58%, #fff9f0);
+}
+
+.nutrition-article--fat-soluble .nutrition-essential {
+  border-color: color-mix(in srgb, var(--vitamin-accent) 25%, transparent);
+  border-left-color: var(--vitamin-accent);
+  background: linear-gradient(135deg, #eff8fb, color-mix(in srgb, var(--vitamin-accent) 7%, white));
+}
+
+.nutrition-vitamin-name {
+  margin: -0.75rem 0 1.2rem;
+  color: var(--b-accent, var(--vitamin-accent, var(--color-brand-primary)));
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 750;
+}
+
+.nutrition-b-visual {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  min-height: 24rem;
+  padding: clamp(1.4rem, 3vw, 2.25rem);
+  align-content: space-between;
+  border: 1px solid rgb(7 26 51 / 10%);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 74% 18%, color-mix(in srgb, var(--b-accent) 78%, white), transparent 9rem),
+    linear-gradient(145deg, #071a33, color-mix(in srgb, var(--b-accent) 72%, #071a33));
+  box-shadow: var(--shadow-lg);
+  color: #fff;
+}
+
+.nutrition-b-visual::before,
+.nutrition-b-visual::after {
+  position: absolute;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 50%;
+  content: "";
+}
+
+.nutrition-b-visual::before {
+  width: 15rem;
+  height: 15rem;
+  top: -4rem;
+  right: -5rem;
+}
+
+.nutrition-b-visual::after {
+  width: 9rem;
+  height: 9rem;
+  bottom: 3rem;
+  left: -4rem;
+}
+
+.nutrition-b-visual span,
+.nutrition-b-visual small {
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nutrition-b-visual span {
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.nutrition-b-visual strong {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(6.5rem, 14vw, 10rem);
+  line-height: 0.82;
+  text-shadow: 0 0 3rem rgb(255 255 255 / 16%);
+}
+
+.nutrition-b-visual small {
+  font-size: 0.75rem;
 }
 
 .nutrition-article-heading h1 {
@@ -2414,12 +2679,14 @@ p {
 
 @media (hover: hover) and (pointer: fine) {
   .nutrition-hero-visual img,
-  .nutrition-featured-article > img {
+  .nutrition-featured-article > img,
+  .nutrition-vitamin-card img {
     transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .nutrition-hero-visual:hover img,
-  .nutrition-featured-article:hover > img {
+  .nutrition-featured-article:hover > img,
+  .nutrition-vitamin-card:hover img {
     transform: scale(1.018);
   }
 }
@@ -2467,6 +2734,31 @@ p {
     aspect-ratio: 3 / 2;
   }
 
+  .nutrition-b-library {
+    padding: 2rem 1.2rem;
+  }
+
+  .nutrition-b-library-heading,
+  .nutrition-b-index,
+  .nutrition-vitamin-shelf-heading,
+  .nutrition-vitamin-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-vitamin-shelf {
+    padding: 2rem 1.2rem;
+  }
+
+  .nutrition-vitamin-card > div {
+    padding: 1.35rem;
+  }
+
+  .nutrition-b-index article:nth-child(odd),
+  .nutrition-b-index article:nth-child(even) {
+    padding: 1.35rem 0;
+    border-left: 0;
+  }
+
   .nutrition-article-hero {
     padding: 1rem 1rem 2rem;
     gap: 1.8rem;
@@ -2474,6 +2766,15 @@ p {
 
   .nutrition-article-heading h1 {
     font-size: clamp(3.25rem, 19vw, 5rem);
+  }
+
+  .nutrition-b-visual {
+    min-height: 17rem;
+    order: -1;
+  }
+
+  .nutrition-b-visual strong {
+    font-size: clamp(6rem, 32vw, 8rem);
   }
 
   .nutrition-publication-meta {

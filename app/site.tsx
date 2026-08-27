@@ -17,6 +17,7 @@ const MASSOTHERAPY_INSTAGRAM =
 const navItems = [
   { href: "/", label: "Início" },
   { href: "/sobre", label: "Sobre" },
+  { href: "/nutricao", label: "Nutrição" },
   { href: "/massoterapia", label: "Massoterapia" },
   { href: "/contato", label: "Contato" },
 ];
@@ -246,6 +247,7 @@ function Footer() {
           <h2>Navegação</h2>
           <Link href="/">Início</Link>
           <Link href="/sobre">Sobre</Link>
+          <Link href="/nutricao">Nutrição</Link>
           <Link href="/massoterapia">Massoterapia</Link>
           <Link href="/contato">Contato</Link>
         </div>

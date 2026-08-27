@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { JsonLd, PageShell } from "../site";
+import { B_VITAMIN_SUMMARIES } from "./b-vitamins";
+import { REMAINING_VITAMIN_SUMMARIES } from "./vitamins-dek";
 
 const SITE_URL = "https://www.cleversouza.com";
 const ARTICLE_PATH = "/nutricao/vitaminas/vitamina-a";
@@ -85,8 +87,9 @@ export function NutritionHubPage() {
           <p className="eyebrow">Primeiro núcleo</p>
           <h2 id="vitaminas-title">Vitaminas</h2>
           <p>
-            Comece pelos guias de vitamina A e vitamina C: formas, funções,
-            fontes, necessidades, deficiência, excesso e uso responsável de suplementos.
+            Consulte os guias de vitamina A, de todo o complexo B e das vitaminas
+            C, D, E e K: formas, funções, fontes, necessidades, deficiência,
+            excesso e uso responsável de suplementos.
           </p>
         </div>
         <Link className="button button-secondary" href="/nutricao/vitaminas">
@@ -151,6 +154,32 @@ export function VitaminsHubPage() {
             decoding="async"
           />
         </article>
+        <section className="nutrition-b-library" aria-labelledby="complexo-b-title">
+          <div className="nutrition-b-library-heading">
+            <div>
+              <p className="eyebrow">Nova coleção</p>
+              <h2 id="complexo-b-title">Vitaminas do complexo B</h2>
+            </div>
+            <p>
+              Oito guias independentes para compreender nutrientes que trabalham em
+              rede, mas têm funções, fontes e cuidados próprios.
+            </p>
+          </div>
+          <div className="nutrition-b-index">
+            {B_VITAMIN_SUMMARIES.map((guide) => (
+              <article key={guide.key}>
+                <span aria-hidden="true">{guide.key}</span>
+                <div>
+                  <h3>{guide.name}</h3>
+                  <p>{guide.summary}</p>
+                  <Link className="text-link" href={`/nutricao/vitaminas/${guide.slug}`}>
+                    Ler o guia <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
         <article className="nutrition-featured-article nutrition-featured-article--reverse" aria-labelledby="vitamina-c-title">
           <img
             src="/nutricao/vitamina-c-fontes.webp"
@@ -161,7 +190,7 @@ export function VitaminsHubPage() {
             decoding="async"
           />
           <div className="nutrition-featured-copy">
-            <p className="eyebrow">Novo guia</p>
+            <p className="eyebrow">Guia disponível</p>
             <h2 id="vitamina-c-title">Vitamina C</h2>
             <p>
               Compreenda ácido ascórbico, colágeno, absorção de ferro, fontes,
@@ -172,6 +201,40 @@ export function VitaminsHubPage() {
             </Link>
           </div>
         </article>
+        <section className="nutrition-vitamin-shelf" aria-labelledby="vitaminas-dek-title">
+          <div className="nutrition-vitamin-shelf-heading">
+            <div>
+              <p className="eyebrow">Novos guias aprofundados</p>
+              <h2 id="vitaminas-dek-title">Vitaminas D, E e K</h2>
+            </div>
+            <p>
+              Três vitaminas lipossolúveis, três histórias diferentes sobre
+              absorção, avaliação e segurança.
+            </p>
+          </div>
+          <div className="nutrition-vitamin-card-grid">
+            {REMAINING_VITAMIN_SUMMARIES.map((guide) => (
+              <article className="nutrition-vitamin-card" key={guide.key}>
+                <img
+                  src={guide.image}
+                  alt={guide.alt}
+                  width="1536"
+                  height="1024"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div>
+                  <span aria-hidden="true">{guide.key}</span>
+                  <h3>{guide.name}</h3>
+                  <p>{guide.summary}</p>
+                  <Link className="text-link" href={`/nutricao/vitaminas/${guide.slug}`}>
+                    Ler o guia <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
       </section>
     </PageShell>
   );
