@@ -1,0 +1,588 @@
+.page {
+  --research-green: #0d746c;
+  --research-teal: #2db3a6;
+  --research-pale: #eaf7f5;
+}
+
+.hero h1 {
+  max-width: 11ch;
+  font-size: clamp(3rem, 6.6vw, 5.7rem);
+}
+
+.researchVisual {
+  min-height: 34rem;
+}
+
+.researchVisual li span {
+  color: #79e0d5;
+}
+
+.comparisonGrid {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.35rem;
+  gap: 1px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: var(--ia-line);
+}
+
+.comparisonGrid article {
+  display: flex;
+  min-height: 25rem;
+  padding: clamp(1.5rem, 4vw, 2.2rem);
+  flex-direction: column;
+  background: var(--ia-paper);
+}
+
+.comparisonGrid article:first-child {
+  border-top: 4px solid var(--research-green);
+}
+
+.comparisonGrid article:last-child {
+  border-top: 4px solid var(--ia-blue);
+}
+
+.comparisonGrid article > p {
+  margin: 0 0 2.5rem;
+  color: var(--research-green);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.comparisonGrid h3 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.comparisonGrid ul {
+  margin: 0 0 2rem;
+  padding-left: 1.15rem;
+  color: var(--ia-soft);
+}
+
+.comparisonGrid li {
+  margin-bottom: 0.5rem;
+}
+
+.comparisonGrid strong,
+.comparisonGrid a {
+  margin-top: auto;
+  color: var(--ia-deep);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.methodSection {
+  border-color: #cde6e2;
+  background:
+    radial-gradient(circle at 100% 0%, rgb(45 179 166 / 11%), transparent 28rem),
+    linear-gradient(145deg, #fff 0%, #f2faf8 100%);
+}
+
+.phaseList li > span {
+  background: var(--research-green);
+  color: #d9fffa;
+}
+
+.sequenceNote {
+  display: flex;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #cde6e2;
+  border-radius: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  background: rgb(255 255 255 / 72%);
+  color: var(--ia-soft);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.sequenceNote span[aria-hidden="true"] {
+  color: var(--research-green);
+}
+
+.rigorGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.rigorGrid article {
+  display: flex;
+  min-height: 20rem;
+  padding: 1.55rem;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.2rem;
+  flex-direction: column;
+  background: var(--ia-paper);
+}
+
+.rigorGrid article:nth-child(2) {
+  border-top: 4px solid var(--research-green);
+}
+
+.rigorGrid article:nth-child(3) {
+  border-top: 4px solid var(--ia-violet);
+}
+
+.rigorGrid article > span {
+  margin-bottom: 2.3rem;
+  color: var(--research-green);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.rigorGrid h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1.45rem;
+}
+
+.rigorGrid p {
+  margin-bottom: 1.5rem;
+}
+
+.rigorGrid strong {
+  margin-top: auto;
+  color: var(--ia-deep);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.decisionQuestions {
+  display: grid;
+  margin-top: 1.25rem;
+  padding: 1.5rem;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.15rem;
+  grid-template-columns: minmax(13rem, 0.6fr) 1fr;
+  gap: 2rem;
+  background: var(--ia-mist);
+}
+
+.decisionQuestions h3,
+.decisionQuestions ul {
+  margin: 0;
+}
+
+.decisionQuestions ul {
+  padding-left: 1.2rem;
+  color: var(--ia-soft);
+}
+
+.decisionQuestions li {
+  margin-bottom: 0.45rem;
+}
+
+.briefSection {
+  width: min(73rem, calc(100% - 2rem));
+  padding-right: clamp(1rem, 4vw, 4rem);
+  padding-left: clamp(1rem, 4vw, 4rem);
+  border: 1px solid #bdded9;
+  border-radius: clamp(1.5rem, 4vw, 3rem);
+  background:
+    radial-gradient(circle at 92% 7%, rgb(45 179 166 / 14%), transparent 24rem),
+    #f4fbfa;
+}
+
+.briefIntro {
+  display: grid;
+  margin-bottom: 1.5rem;
+  border: 1px solid #cde6e2;
+  border-radius: 1.15rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: #fff;
+}
+
+.briefIntro > div {
+  min-height: 9rem;
+  padding: 1.35rem;
+}
+
+.briefIntro > div + div {
+  border-left: 1px solid #cde6e2;
+}
+
+.briefIntro span {
+  display: block;
+  margin-bottom: 1.3rem;
+  color: var(--research-green);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.briefIntro strong {
+  color: var(--ia-deep);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.briefRule {
+  margin: 1.25rem 0 0;
+  padding: 1.2rem;
+  border-left: 4px solid var(--research-green);
+  background: #fff;
+}
+
+.promptStack {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.promptStack > details {
+  overflow: hidden;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.1rem;
+  background: var(--ia-paper);
+}
+
+.promptStack summary {
+  display: flex;
+  min-height: 5rem;
+  padding: 1.2rem 1.35rem;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.promptStack summary::-webkit-details-marker,
+.adapterList summary::-webkit-details-marker {
+  display: none;
+}
+
+.promptStack summary > span {
+  color: var(--research-green);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.promptStack summary > strong {
+  color: var(--ia-deep);
+}
+
+.promptStack details > div {
+  padding: 0 1.2rem 1.2rem;
+}
+
+.promptStack details > div > p {
+  max-width: 48rem;
+  margin: 0 0 1rem;
+}
+
+.adapterSection {
+  background:
+    radial-gradient(circle at 90% 7%, rgb(45 179 166 / 20%), transparent 28rem),
+    var(--ia-deep);
+}
+
+.adapterList {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.adapterList > details {
+  overflow: hidden;
+  border: 1px solid rgb(185 220 235 / 17%);
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 5%);
+}
+
+.adapterList summary {
+  display: grid;
+  min-height: 5rem;
+  padding: 1rem 3.5rem 1rem 1.2rem;
+  align-items: center;
+  gap: 1rem;
+  grid-template-columns: 2.2rem 1fr;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+}
+
+.adapterList summary::after {
+  position: absolute;
+  top: 50%;
+  right: 1.2rem;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1px solid rgb(121 224 213 / 35%);
+  border-radius: 50%;
+  color: #79e0d5;
+  content: "+";
+  line-height: 1.55rem;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.adapterList details[open] summary::after {
+  content: "−";
+}
+
+.adapterList summary > span {
+  color: #79e0d5;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.adapterList summary > div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.adapterList summary strong {
+  color: #fff;
+}
+
+.adapterList summary small {
+  color: #b9dceb;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.adapterContent {
+  padding: 0 1rem 1rem;
+}
+
+.exampleContent {
+  padding: 0 1.35rem 1.35rem;
+}
+
+.exampleContent dl {
+  margin: 0;
+  border-top: 1px solid var(--ia-line);
+}
+
+.exampleContent dl > div {
+  display: grid;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--ia-line);
+  grid-template-columns: minmax(8rem, 0.28fr) 1fr;
+  gap: 1rem;
+}
+
+.exampleContent dt {
+  color: var(--research-green);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.exampleContent dd {
+  margin: 0;
+  color: var(--ia-soft);
+}
+
+.exampleContent > p {
+  margin: 1rem 0 0;
+  color: var(--ia-deep);
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+
+.auditSection {
+  background:
+    radial-gradient(circle at 100% 0%, rgb(45 179 166 / 13%), transparent 27rem),
+    #eef7f6;
+}
+
+.auditChecklist {
+  display: grid;
+  margin-top: 1.25rem;
+  padding: 1.4rem;
+  border: 1px solid #cde6e2;
+  border-radius: 1rem;
+  grid-template-columns: minmax(14rem, 0.6fr) 1fr;
+  gap: 2rem;
+  background: #fff;
+}
+
+.auditChecklist h3,
+.auditChecklist ul {
+  margin: 0;
+}
+
+.auditChecklist ul {
+  padding-left: 1.1rem;
+  color: var(--ia-soft);
+}
+
+.auditChecklist li {
+  margin-bottom: 0.4rem;
+}
+
+.relatedSection {
+  border-bottom: 0;
+}
+
+.methodNote {
+  display: grid;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.15rem;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: var(--ia-mist);
+}
+
+.methodNote p {
+  margin: 0;
+}
+
+.relatedGrid {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.2rem;
+  gap: 1px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: var(--ia-line);
+}
+
+.relatedGrid a {
+  display: grid;
+  min-height: 10.5rem;
+  padding: 1.35rem;
+  gap: 0.45rem;
+  align-content: start;
+  background: #fff;
+  color: var(--ia-deep);
+  text-decoration: none;
+}
+
+.relatedGrid a:last-child {
+  grid-column: 1 / -1;
+}
+
+.relatedGrid span {
+  color: var(--research-green);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.relatedGrid strong {
+  font-size: 1.15rem;
+}
+
+.relatedGrid small {
+  color: var(--ia-soft);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.relatedGrid a:hover strong {
+  text-decoration: underline;
+}
+
+@media (max-width: 980px) {
+  .rigorGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .rigorGrid article {
+    min-height: auto;
+  }
+
+  .rigorGrid article > span {
+    margin-bottom: 1rem;
+  }
+
+  .briefIntro {
+    grid-template-columns: 1fr;
+  }
+
+  .briefIntro > div {
+    min-height: auto;
+  }
+
+  .briefIntro > div + div {
+    border-top: 1px solid #cde6e2;
+    border-left: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero h1 {
+    font-size: clamp(2.75rem, 13vw, 4.3rem);
+  }
+
+  .researchVisual {
+    min-height: auto;
+  }
+
+  .comparisonGrid,
+  .relatedGrid,
+  .methodNote {
+    grid-template-columns: 1fr;
+  }
+
+  .comparisonGrid article {
+    min-height: auto;
+  }
+
+  .comparisonGrid article > p {
+    margin-bottom: 1.2rem;
+  }
+
+  .comparisonGrid strong,
+  .comparisonGrid a {
+    margin-top: 1rem;
+  }
+
+  .briefSection {
+    width: calc(100% - 1rem);
+    padding-right: 1rem;
+    padding-left: 1rem;
+    border-radius: 1.4rem;
+  }
+
+  .decisionQuestions,
+  .auditChecklist {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .sequenceNote {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .sequenceNote span[aria-hidden="true"] {
+    transform: rotate(90deg);
+  }
+
+  .exampleContent dl > div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .relatedGrid a:last-child {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 390px) {
+  .briefSection {
+    width: calc(100% - 0.75rem);
+  }
+
+  .adapterList summary {
+    padding-left: 0.85rem;
+    gap: 0.55rem;
+    grid-template-columns: 1.65rem 1fr;
+  }
+}

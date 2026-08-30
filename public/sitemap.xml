@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.cleversouza.com/</loc><lastmod>2026-08-16</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.cleversouza.com/</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.cleversouza.com/ia</loc><lastmod>2026-08-29</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.cleversouza.com/ia/engenharia-de-prompt</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.cleversouza.com/ia/context-engineering</loc><lastmod>2026-08-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.cleversouza.com/ia/pesquisa-aprofundada</loc><lastmod>2026-08-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.cleversouza.com/ia/pesquisa-com-ia</loc><lastmod>2026-08-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.cleversouza.com/ia/ia-com-arquivos</loc><lastmod>2026-08-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.cleversouza.com/ia/prompts-para-imagens</loc><lastmod>2026-08-29</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.cleversouza.com/ia/videos-curtos</loc><lastmod>2026-08-29</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.cleversouza.com/ia/avaliacao-de-respostas-de-ia</loc><lastmod>2026-08-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.cleversouza.com/ia/napoleon-hill</loc><lastmod>2026-08-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.cleversouza.com/nutricao</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.cleversouza.com/nutricao/vitaminas</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.cleversouza.com/nutricao/vitaminas/vitamina-a</loc><lastmod>2026-08-26</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
@@ -16,6 +26,43 @@
   <url><loc>https://www.cleversouza.com/nutricao/vitaminas/vitamina-d</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.cleversouza.com/nutricao/vitaminas/vitamina-e</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.cleversouza.com/nutricao/vitaminas/vitamina-k</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/macronutrientes</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/macronutrientes/carboidratos</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/macronutrientes/proteinas</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/macronutrientes/gorduras</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/calcio</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/fosforo</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/magnesio</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/sodio</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/potassio</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/cloreto</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/ferro</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/zinco</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/cobre</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/manganes</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/iodo</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/selenio</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/molibdenio</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/cromo</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/minerais/fluor</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/aminoacidos</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/aminoacidos/histidina</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/aminoacidos/isoleucina</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/aminoacidos/leucina</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/aminoacidos/lisina</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/aminoacidos/metionina</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/aminoacidos/fenilalanina</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/aminoacidos/treonina</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/aminoacidos/triptofano</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/aminoacidos/valina</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/acidos-graxos</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/acidos-graxos/acido-linoleico-omega-6</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/acidos-graxos/acido-alfa-linolenico-omega-3</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/outros-nutrientes</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/outros-nutrientes/agua</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/outros-nutrientes/fibras-alimentares</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cleversouza.com/nutricao/outros-nutrientes/colina</loc><lastmod>2026-08-27</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.cleversouza.com/massoterapia</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.cleversouza.com/massoterapia/quick-massage-corporativo</loc><lastmod>2026-08-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.cleversouza.com/massoterapia/conteudo</loc><lastmod>2026-08-16</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
@@ -33,7 +80,7 @@
   <url><loc>https://www.cleversouza.com/massoterapia/conteudo/antes-depois-massagem</loc><lastmod>2026-08-16</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.cleversouza.com/massoterapia-curitiba</loc><lastmod>2026-07-31</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.cleversouza.com/servicos</loc><lastmod>2026-07-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.cleversouza.com/sobre</loc><lastmod>2026-08-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.cleversouza.com/sobre</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.cleversouza.com/contato</loc><lastmod>2026-08-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.cleversouza.com/politica-de-privacidade</loc><lastmod>2026-07-31</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.cleversouza.com/termos-de-uso</loc><lastmod>2026-07-31</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>

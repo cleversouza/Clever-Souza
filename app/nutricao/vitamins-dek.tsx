@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { JsonLd, PageShell } from "../site";
+import { NutritionPublicationMeta } from "./publication-meta";
 
 const SITE_URL = "https://www.cleversouza.com";
 const ANVISA_URL =
@@ -449,8 +450,8 @@ export function FatSolubleVitaminPage({ vitamin }: { vitamin: FatSolubleVitaminK
     "@context": "https://schema.org", "@type": "Article", headline: data.name,
     description: data.deck, datePublished: "2026-08-27", dateModified: "2026-08-27", inLanguage: "pt-BR",
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical }, image: [`${SITE_URL}${data.image}`],
-    author: { "@type": "Organization", name: "Clever Souza", url: SITE_URL },
-    publisher: { "@type": "Organization", name: "Clever Souza", url: SITE_URL },
+    author: { "@type": "Person", name: "Cleverson Batista de Souza", alternateName: "Clever Souza", url: `${SITE_URL}/sobre` },
+    publisher: { "@type": "Person", name: "Cleverson Batista de Souza", alternateName: "Clever Souza", url: `${SITE_URL}/sobre` },
     isPartOf: { "@type": "WebSite", "@id": `${SITE_URL}/#website` },
     about: [data.name, data.descriptor, "Vitaminas lipossolúveis"], citation: references.map((reference) => reference[1]),
   };
@@ -472,7 +473,7 @@ export function FatSolubleVitaminPage({ vitamin }: { vitamin: FatSolubleVitaminK
             <p className="eyebrow">Nutrição · Vitamina lipossolúvel</p>
             <h1>{data.name}</h1><p className="nutrition-vitamin-name">{data.descriptor}</p>
             <p className="nutrition-deck">{data.deck}</p>
-            <div className="nutrition-publication-meta"><span>Conteúdo editorial Clever Souza</span><span>Atualizado em <time dateTime="2026-08-27">27 de agosto de 2026</time></span><span>Leitura aprofundada · cerca de {data.readingTime}</span></div>
+            <NutritionPublicationMeta updatedIso="2026-08-27" updatedLabel="27 de agosto de 2026" readingTime={data.readingTime} />
           </div>
           <figure className="nutrition-hero-visual"><img src={data.image} alt={data.imageAlt} width="1536" height="1024" loading="eager" fetchPriority="high" decoding="async" /><figcaption>{data.imageCaption}</figcaption></figure>
         </header>

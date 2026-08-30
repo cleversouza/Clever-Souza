@@ -1,0 +1,966 @@
+.contextPage {
+  --context-amber: #a55f2b;
+  --context-amber-dark: #75401f;
+  --context-amber-pale: #f8f1ea;
+  --context-teal: #1d6a69;
+}
+
+.hero {
+  background:
+    radial-gradient(circle at 82% 15%, rgb(216 151 91 / 22%), transparent 24rem),
+    radial-gradient(circle at 18% 100%, rgb(29 106 105 / 10%), transparent 32rem),
+    linear-gradient(135deg, #fff 0%, #faf8f5 58%, #f4eee8 100%);
+}
+
+.contextVisual {
+  border-color: rgb(226 170 115 / 28%);
+  background: linear-gradient(155deg, #071a33 0%, #4b3023 100%);
+}
+
+.contextVisual > p,
+.contextVisual li span {
+  color: #f0bd8d;
+}
+
+.quickSteps {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.3rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  background: var(--ia-line);
+  gap: 1px;
+}
+
+.quickSteps article {
+  min-height: 12.5rem;
+  padding: 1.35rem;
+  background: #fff;
+}
+
+.quickSteps span,
+.layerGrid > article > span,
+.selectionGrid > article > span,
+.instructionData article > span,
+.exampleTriptych article > span {
+  color: var(--context-amber);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.quickSteps h3 {
+  margin: 2rem 0 0.55rem;
+  font-size: 1.06rem;
+}
+
+.quickSteps p {
+  margin: 0;
+  color: var(--ia-soft);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.systemLine {
+  display: grid;
+  overflow: hidden;
+  margin-top: 3rem;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.2rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  background: var(--ia-line);
+  gap: 1px;
+}
+
+.systemLine > div,
+.ragFlow > div {
+  display: grid;
+  min-height: 8rem;
+  padding: 1.15rem;
+  align-content: center;
+  gap: 0.45rem;
+  background: #fff;
+}
+
+.systemLine strong,
+.ragFlow strong,
+.projectFormula strong {
+  color: var(--ia-text);
+  font-size: 0.94rem;
+}
+
+.systemLine span,
+.ragFlow span,
+.projectFormula span {
+  color: var(--ia-soft);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.typeGrid,
+.resourceGrid,
+.securityRules,
+.useCases {
+  display: grid;
+  margin-top: 1.25rem;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.typeGrid article,
+.resourceGrid article,
+.securityRules article,
+.useCases article {
+  padding: 1.25rem;
+  border: 1px solid var(--ia-line);
+  border-top: 3px solid var(--context-amber);
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.typeGrid h3,
+.resourceGrid h3,
+.securityRules h3,
+.useCases h3,
+.memoryGrid h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.typeGrid p,
+.resourceGrid p,
+.securityRules p,
+.useCases p,
+.memoryGrid p {
+  margin: 0.55rem 0 0;
+  color: var(--ia-soft);
+  font-size: 0.87rem;
+  line-height: 1.58;
+}
+
+.layersSection {
+  background: linear-gradient(180deg, #fff 0%, #fbf8f4 100%);
+}
+
+.layerGrid {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.25rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: var(--ia-line);
+  gap: 1px;
+}
+
+.layerGrid article {
+  min-height: 13rem;
+  padding: 1.4rem;
+  background: #fff;
+}
+
+.layerGrid h3,
+.selectionGrid h3 {
+  margin: 2rem 0 0.65rem;
+  font-size: 1.1rem;
+}
+
+.layerGrid p,
+.selectionGrid p {
+  margin: 0;
+  color: var(--ia-soft);
+  font-size: 0.88rem;
+  line-height: 1.58;
+}
+
+.staticDynamic,
+.instructionData {
+  display: grid;
+  margin-top: 1.25rem;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.staticDynamic article,
+.instructionData article {
+  padding: clamp(1.4rem, 4vw, 2rem);
+  border-radius: 1.2rem;
+  background: var(--context-amber-pale);
+}
+
+.staticDynamic article:last-child {
+  background: #edf5f4;
+}
+
+.staticDynamic h3,
+.instructionData h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1.2rem;
+}
+
+.staticDynamic p:last-child,
+.instructionData p {
+  margin: 0;
+  color: var(--ia-soft);
+}
+
+.selectionGrid {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.25rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: var(--ia-line);
+  gap: 1px;
+}
+
+.selectionGrid article {
+  min-height: 14rem;
+  padding: 1.4rem;
+  background: #fff;
+}
+
+.selectionGrid article:nth-child(4) {
+  background: #f6f1ef;
+}
+
+.budgetPanel {
+  display: grid;
+  margin-top: 1.25rem;
+  padding: clamp(1.5rem, 4vw, 2.3rem);
+  border-radius: 1.3rem;
+  grid-template-columns: minmax(16rem, 0.75fr) 1.25fr;
+  gap: 2rem;
+  background: #071a33;
+  color: #fff;
+}
+
+.budgetPanel h3,
+.budgetPanel strong {
+  color: #fff;
+}
+
+.budgetPanel > div p {
+  color: #f0bd8d;
+}
+
+.budgetPanel ul {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  list-style: none;
+}
+
+.budgetPanel li {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.budgetPanel li span {
+  color: #c7ddeb;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.termNote,
+.ragWarning,
+.relevanceTest {
+  margin: 1.25rem 0 0;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--ia-line);
+  border-radius: 1rem;
+  background: #fff;
+  color: var(--ia-soft);
+  font-size: 0.88rem;
+}
+
+.relevanceTest {
+  display: grid;
+  border-left: 4px solid var(--context-amber);
+  border-radius: 0 1rem 1rem 0;
+  grid-template-columns: minmax(10rem, 0.3fr) 1fr;
+  gap: 1rem;
+  background: var(--context-amber-pale);
+}
+
+.relevanceTest strong,
+.ragWarning strong {
+  color: var(--ia-text);
+}
+
+.relevanceTest p {
+  margin: 0;
+}
+
+.memorySection {
+  background:
+    radial-gradient(circle at 95% 5%, rgb(216 151 91 / 14%), transparent 28rem),
+    #fff;
+}
+
+.memoryGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.memoryGrid article {
+  padding: 1.4rem;
+  border: 1px solid var(--ia-line);
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 14px 38px rgb(7 26 51 / 5%);
+}
+
+.doNotRemember {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border-radius: 1.1rem;
+  background: var(--context-amber-pale);
+}
+
+.doNotRemember h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.doNotRemember ul {
+  margin-bottom: 0;
+  columns: 2;
+}
+
+.doNotRemember li {
+  margin-bottom: 0.45rem;
+  break-inside: avoid;
+}
+
+.ragFlow {
+  display: grid;
+  overflow: hidden;
+  margin-top: 2.5rem;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.2rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  background: var(--ia-line);
+  gap: 1px;
+}
+
+.ragFlow > div {
+  position: relative;
+}
+
+.ragFlow > div + div::before {
+  position: absolute;
+  top: 50%;
+  left: -0.65rem;
+  display: grid;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 999px;
+  place-items: center;
+  background: var(--context-amber);
+  color: #fff;
+  content: "›";
+  transform: translateY(-50%);
+}
+
+.ragWarning {
+  border-left: 4px solid var(--context-amber);
+  border-radius: 0 1rem 1rem 0;
+}
+
+.compressionPanel,
+.askAssume,
+.contextPack,
+.relatedGuides {
+  display: grid;
+  margin-top: 1.25rem;
+  padding: clamp(1.5rem, 4vw, 2.2rem);
+  border-radius: 1.25rem;
+  grid-template-columns: minmax(15rem, 0.7fr) 1.3fr;
+  gap: 2rem;
+  background: #edf5f4;
+}
+
+.compressionPanel h3,
+.askAssume h3,
+.contextPack h3,
+.relatedGuides h3 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.compressionPanel > p,
+.contextPack > div > p:last-child,
+.relatedGuides p {
+  margin: 0;
+  color: var(--ia-soft);
+}
+
+.projectFormula {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: var(--ia-line);
+  gap: 1px;
+}
+
+.projectFormula div {
+  display: grid;
+  min-height: 8.5rem;
+  padding: 1.25rem;
+  align-content: center;
+  gap: 0.4rem;
+  background: #fff;
+}
+
+.useCases {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.useCases article {
+  border-top-color: var(--context-teal);
+}
+
+.securitySection {
+  width: min(73rem, calc(100% - 2rem));
+  padding-right: clamp(1rem, 4vw, 4rem);
+  padding-left: clamp(1rem, 4vw, 4rem);
+  border-radius: clamp(1.5rem, 4vw, 3rem);
+  background: #071a33;
+  color: #fff;
+}
+
+.securitySection h2,
+.securitySection h3,
+.securitySection strong {
+  color: #fff;
+}
+
+.securitySection p {
+  color: #c7ddeb;
+}
+
+.instructionData article {
+  border: 1px solid rgb(240 189 141 / 18%);
+  background: rgb(255 255 255 / 6%);
+}
+
+.instructionData article > span {
+  color: #f0bd8d;
+}
+
+.instructionData p {
+  color: #c7ddeb;
+}
+
+.securityRules article {
+  border-color: rgb(240 189 141 / 18%);
+  border-top-color: #f0bd8d;
+  background: rgb(255 255 255 / 5%);
+}
+
+.securityRules p {
+  color: #c7ddeb;
+}
+
+.provenanceLine {
+  display: flex;
+  margin-top: 1.25rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgb(240 189 141 / 20%);
+  border-radius: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  background: rgb(255 255 255 / 4%);
+}
+
+.provenanceLine strong {
+  margin-right: auto;
+}
+
+.provenanceLine span {
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: rgb(240 189 141 / 10%);
+  color: #f0bd8d;
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.methodSteps {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ia-line);
+  list-style: none;
+}
+
+.methodSteps li {
+  display: grid;
+  min-height: 7rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--ia-line);
+  align-items: start;
+  grid-template-columns: 4rem 1fr;
+  gap: 1rem;
+}
+
+.methodSteps > li > span {
+  color: var(--context-amber);
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.methodSteps h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.12rem;
+}
+
+.methodSteps p {
+  max-width: 48rem;
+  margin: 0;
+  color: var(--ia-soft);
+  font-size: 0.92rem;
+}
+
+.askAssume {
+  background: var(--context-amber-pale);
+}
+
+.askAssume dl,
+.contextPack dl {
+  margin: 0;
+}
+
+.askAssume dl > div,
+.contextPack dl > div {
+  display: grid;
+  padding: 0.7rem 0;
+  border-top: 1px solid rgb(7 26 51 / 11%);
+  grid-template-columns: minmax(7rem, 0.3fr) 1fr;
+  gap: 1rem;
+}
+
+.askAssume dt,
+.contextPack dt {
+  color: var(--ia-text);
+  font-weight: 800;
+}
+
+.askAssume dd,
+.contextPack dd {
+  margin: 0;
+  color: var(--ia-soft);
+  font-size: 0.88rem;
+}
+
+.contextMap {
+  margin-top: 2.5rem;
+}
+
+.contextMap > h3 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.contextMap > p {
+  margin: 0.4rem 0 1rem;
+  color: var(--ia-soft);
+  font-size: 0.88rem;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--ia-line);
+  border-radius: 1rem;
+  background: #fff;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tableWrap table {
+  width: 100%;
+  min-width: 44rem;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.tableWrap th,
+.tableWrap td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--ia-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.tableWrap th {
+  color: var(--ia-text);
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.required,
+.relevant,
+.remove {
+  display: inline-block;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  background: #e9f4ef;
+  color: #196141;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.relevant {
+  background: #f8f1df;
+  color: #795718;
+}
+
+.remove {
+  background: #f5eaea;
+  color: #823838;
+}
+
+.contextPack {
+  margin-top: 1.25rem;
+  background: #f6f8fa;
+}
+
+.exampleTriptych {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--ia-line);
+  border-radius: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: var(--ia-line);
+  gap: 1px;
+}
+
+.exampleTriptych article {
+  padding: 1.15rem;
+  background: #fff;
+}
+
+.exampleTriptych article:nth-child(2) {
+  background: var(--context-amber-pale);
+}
+
+.exampleTriptych p {
+  margin: 0.6rem 0 0;
+  color: var(--ia-soft);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.decisionTree {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.2rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: var(--ia-line);
+  gap: 1px;
+}
+
+.decisionTree > div {
+  position: relative;
+  min-height: 13rem;
+  padding: 1.35rem;
+  background: #fff;
+}
+
+.decisionTree > div + div::before {
+  position: absolute;
+  top: 2rem;
+  left: -0.65rem;
+  display: grid;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 999px;
+  place-items: center;
+  background: var(--context-amber);
+  color: #fff;
+  content: "›";
+}
+
+.decisionTree span {
+  color: var(--context-amber);
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
+.decisionTree strong {
+  display: block;
+  margin-top: 2rem;
+  color: var(--ia-text);
+}
+
+.decisionTree p {
+  margin: 0.55rem 0 0;
+  color: var(--ia-soft);
+  font-size: 0.86rem;
+}
+
+.templateStack {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.aiUseSection {
+  background:
+    radial-gradient(circle at 100% 0%, rgb(216 151 91 / 14%), transparent 26rem),
+    #f7f1eb;
+}
+
+.aiOutputRules {
+  display: grid;
+  margin-top: 1.25rem;
+  padding: 1.35rem;
+  border: 1px solid rgb(165 95 43 / 20%);
+  border-radius: 1rem;
+  grid-template-columns: minmax(12rem, 0.4fr) 1fr;
+  gap: 1.5rem;
+  background: rgb(255 255 255 / 66%);
+}
+
+.aiOutputRules h3 {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.aiOutputRules ol {
+  margin: 0;
+}
+
+.checklist {
+  display: grid;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: var(--ia-line);
+  gap: 1px;
+  list-style: none;
+}
+
+.checklist li {
+  position: relative;
+  min-height: 5rem;
+  padding: 1.2rem 1.2rem 1.2rem 3.3rem;
+  background: #fff;
+  color: var(--ia-soft);
+  font-size: 0.9rem;
+}
+
+.checklist li::before {
+  position: absolute;
+  top: 1.15rem;
+  left: 1.2rem;
+  display: grid;
+  width: 1.35rem;
+  height: 1.35rem;
+  border: 1px solid var(--context-amber);
+  border-radius: 0.35rem;
+  place-items: center;
+  color: var(--context-amber);
+  content: "✓";
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.relatedGuides {
+  align-items: center;
+  background: var(--context-amber-pale);
+}
+
+.relatedGuides a:not(:global(.button)) {
+  color: var(--context-amber-dark);
+  font-weight: 750;
+}
+
+.relatedGuides > a {
+  justify-self: end;
+}
+
+.referencesGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1.2fr 0.8fr;
+}
+
+.referencesGrid section {
+  padding: 1.4rem;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.1rem;
+  background: #fff;
+}
+
+.referencesGrid h3 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.referencesGrid ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.referencesGrid li {
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--ia-line);
+  font-size: 0.82rem;
+}
+
+.referencesGrid a {
+  color: var(--ia-blue);
+  font-weight: 650;
+}
+
+@media (max-width: 980px) {
+  .quickSteps,
+  .systemLine,
+  .ragFlow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .typeGrid,
+  .resourceGrid,
+  .securityRules,
+  .useCases,
+  .selectionGrid,
+  .layerGrid,
+  .decisionTree {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .budgetPanel,
+  .compressionPanel,
+  .askAssume,
+  .contextPack,
+  .relatedGuides {
+    grid-template-columns: 1fr;
+  }
+
+  .projectFormula {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .relatedGuides > a {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 760px) {
+  .quickSteps,
+  .systemLine,
+  .typeGrid,
+  .layerGrid,
+  .selectionGrid,
+  .memoryGrid,
+  .ragFlow,
+  .resourceGrid,
+  .projectFormula,
+  .useCases,
+  .instructionData,
+  .securityRules,
+  .exampleTriptych,
+  .decisionTree,
+  .checklist,
+  .referencesGrid,
+  .staticDynamic {
+    grid-template-columns: 1fr;
+  }
+
+  .quickSteps article,
+  .layerGrid article,
+  .selectionGrid article,
+  .decisionTree > div {
+    min-height: auto;
+  }
+
+  .quickSteps h3,
+  .layerGrid h3,
+  .selectionGrid h3,
+  .decisionTree strong {
+    margin-top: 1rem;
+  }
+
+  .ragFlow > div + div::before,
+  .decisionTree > div + div::before {
+    top: -0.65rem;
+    left: 50%;
+    content: "↓";
+    transform: translateX(-50%);
+  }
+
+  .doNotRemember ul {
+    columns: 1;
+  }
+
+  .relevanceTest,
+  .aiOutputRules {
+    grid-template-columns: 1fr;
+  }
+
+  .securitySection {
+    width: calc(100% - 1rem);
+  }
+
+  .provenanceLine strong {
+    width: 100%;
+  }
+
+  .methodSteps li {
+    grid-template-columns: 2.5rem 1fr;
+  }
+
+  .askAssume dl > div,
+  .contextPack dl > div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .tableWrap {
+    margin-right: -0.25rem;
+    margin-left: -0.25rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .budgetPanel,
+  .compressionPanel,
+  .askAssume,
+  .contextPack,
+  .relatedGuides,
+  .staticDynamic article,
+  .instructionData article {
+    padding: 1.2rem;
+  }
+
+  .budgetPanel ul {
+    grid-template-columns: 1fr;
+  }
+
+  .provenanceLine {
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contextPage *,
+  .contextPage *::before,
+  .contextPage *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

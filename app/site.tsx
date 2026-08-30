@@ -16,9 +16,10 @@ const MASSOTHERAPY_INSTAGRAM =
 
 const navItems = [
   { href: "/", label: "Início" },
-  { href: "/sobre", label: "Sobre" },
   { href: "/nutricao", label: "Nutrição" },
+  { href: "/ia", label: "IA" },
   { href: "/massoterapia", label: "Massoterapia" },
+  { href: "/sobre", label: "Sobre" },
   { href: "/contato", label: "Contato" },
 ];
 
@@ -192,7 +193,11 @@ function Logo() {
 
 function Header({ active }: { active: string }) {
   const current = (href: string) =>
-    href === "/" ? active === "/" : active.startsWith(href);
+    href === "/"
+      ? active === "/"
+      : href === "/ia"
+        ? active === "/ia" || active.startsWith("/ia/")
+        : active.startsWith(href);
 
   return (
     <header className="site-header">
@@ -240,15 +245,16 @@ function Footer() {
             />
           </Link>
           <p className="footer-intro">
-            Site oficial de Clever Souza.
+            Espaço oficial de Cleverson Batista de Souza.
           </p>
         </div>
         <div>
-          <h2>Navegação</h2>
+          <h2>Explorar</h2>
           <Link href="/">Início</Link>
-          <Link href="/sobre">Sobre</Link>
           <Link href="/nutricao">Nutrição</Link>
+          <Link href="/ia">IA</Link>
           <Link href="/massoterapia">Massoterapia</Link>
+          <Link href="/sobre">Sobre</Link>
           <Link href="/contato">Contato</Link>
         </div>
         <div>
@@ -381,6 +387,10 @@ function BrandHeroVisual() {
   return (
     <div className="brand-hero-visual" aria-hidden="true">
       <div className="brand-axis" />
+      <div className="brand-coordinate brand-coordinate-top">
+        <span>01</span>
+        <p>Biblioteca editorial</p>
+      </div>
       <div className="brand-symbol-stage">
         <img
           src="/brand/simbolo-clever-souza-metalico.svg"
@@ -388,6 +398,10 @@ function BrandHeroVisual() {
           width="90"
           height="100"
         />
+      </div>
+      <div className="brand-coordinate brand-coordinate-bottom">
+        <span>02</span>
+        <p>Atuação profissional</p>
       </div>
     </div>
   );
@@ -460,28 +474,15 @@ function Faq({
 }: {
   items: Array<{ question: string; answer: string }>;
 }) {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
-  };
-
   return (
-    <>
-      <div className="faq-list">
-        {items.map((item) => (
-          <details key={item.question}>
-            <summary>{item.question}</summary>
-            <p>{item.answer}</p>
-          </details>
-        ))}
-      </div>
-      <JsonLd value={schema} />
-    </>
+    <div className="faq-list">
+      {items.map((item) => (
+        <details key={item.question}>
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
   );
 }
 
@@ -570,10 +571,21 @@ const homePageSchema = {
   name: "Clever Souza",
   url: SITE_URL,
   description:
-    "Site oficial de Clever Souza, identidade de Cleverson Batista de Souza, em Curitiba, com informações, conteúdos e a área de Massoterapia.",
+    "Site oficial de Clever Souza, plataforma autoral de Cleverson Batista de Souza que reúne uma biblioteca de Nutrição e a área profissional de Massoterapia em Curitiba.",
   inLanguage: "pt-BR",
   isPartOf: { "@type": "WebSite", "@id": WEBSITE_ID },
   about: { "@type": "Person", "@id": PERSON_ID },
+};
+
+const profilePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${SITE_URL}/sobre#profile-page`,
+  name: "Sobre Clever Souza",
+  url: `${SITE_URL}/sobre`,
+  inLanguage: "pt-BR",
+  isPartOf: { "@type": "WebSite", "@id": WEBSITE_ID },
+  mainEntity: { "@type": "Person", "@id": PERSON_ID },
 };
 
 export function HomePage() {
@@ -589,27 +601,127 @@ export function HomePage() {
           <p className="brand-identity">Cleverson Batista de Souza</p>
           <p className="brand-location">Curitiba · Paraná · Brasil</p>
           <p className="brand-summary">
-            Informações, conteúdos e a área Clever Souza Massoterapia,
-            reunidos no espaço oficial de Cleverson Batista de Souza.
+            Uma plataforma autoral que reúne conhecimento editorial e atuação
+            profissional em áreas independentes, conectadas por clareza,
+            contexto e responsabilidade.
           </p>
+          <div className="button-row brand-hero-actions">
+            <a className="button" href="#areas">
+              Explorar as áreas
+            </a>
+            <Link className="button button-secondary" href="/sobre">
+              Sobre Clever Souza
+            </Link>
+          </div>
         </div>
         <BrandHeroVisual />
       </section>
 
-      <nav className="section home-quick-links" aria-label="Acessos principais">
-        <Link href="/massoterapia">
-          <span>Massoterapia</span>
-          <span aria-hidden="true">→</span>
+      <section className="section home-areas" id="areas" aria-labelledby="areas-title">
+        <div className="brand-intro">
+          <div>
+            <p className="eyebrow">Ecossistema atual</p>
+            <h2 id="areas-title">Duas áreas, funções distintas</h2>
+          </div>
+          <div className="brand-intro-copy">
+            <p>
+              Nutrição funciona como biblioteca de conhecimento. Massoterapia
+              reúne atuação profissional em Curitiba e conteúdo educativo. Cada
+              área mantém linguagem, finalidade e caminhos próprios.
+            </p>
+          </div>
+        </div>
+
+        <div className="home-area-grid">
+          <article className="home-area-card home-area-card-nutrition">
+            <div className="home-area-card-heading">
+              <span className="home-area-index">01 · Biblioteca editorial</span>
+              <h3>Nutrição</h3>
+              <p>
+                Guias aprofundados para compreender nutrientes, alimentos,
+                referências de ingestão e suplementação sem transformar
+                informação geral em prescrição.
+              </p>
+            </div>
+            <ul aria-label="Conteúdos disponíveis em Nutrição">
+              <li>Vitaminas e minerais</li>
+              <li>Macronutrientes, aminoácidos e ácidos graxos</li>
+              <li>Fontes, números, evidências e limites</li>
+            </ul>
+            <Link className="text-link" href="/nutricao">
+              Explorar Nutrição <span aria-hidden="true">→</span>
+            </Link>
+          </article>
+
+          <article className="home-area-card home-area-card-massotherapy">
+            <div className="home-area-card-heading">
+              <span className="home-area-index">02 · Atuação profissional</span>
+              <h3>Massoterapia</h3>
+              <p>
+                Protocolos Clever, atendimento em Curitiba e conteúdos que
+                explicam técnicas, cuidados, evidências e limites com linguagem
+                responsável.
+              </p>
+            </div>
+            <ul aria-label="Caminhos disponíveis em Massoterapia">
+              <li>Protocolos orientados pelo objetivo relatado</li>
+              <li>Guias para decisões mais informadas</li>
+              <li>Contato direto pelo canal oficial</li>
+            </ul>
+            <Link className="text-link" href="/massoterapia">
+              Conhecer Massoterapia <span aria-hidden="true">→</span>
+            </Link>
+          </article>
+        </div>
+      </section>
+
+      <section className="section section-soft brand-principles" aria-labelledby="principios-title">
+        <SectionHeading
+          eyebrow="Princípios editoriais"
+          title="Clareza para explorar com confiança"
+          text="A plataforma cresce sem misturar finalidades, exagerar promessas ou esconder os limites de cada conteúdo."
+        />
+        <div className="principle-grid">
+          <article>
+            <span>01</span>
+            <h3>Contexto antes de promessa</h3>
+            <p>
+              Informação útil precisa explicar condições, limites e incertezas —
+              especialmente em temas de saúde e bem-estar.
+            </p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Áreas com função própria</h3>
+            <p>
+              Biblioteca editorial e atuação profissional convivem no mesmo
+              ecossistema sem se confundirem.
+            </p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Fontes e limites visíveis</h3>
+            <p>
+              Guias aprofundados mostram referências, atualização e quando a
+              orientação individual exige um profissional habilitado.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section className="brand-contact-cta" aria-labelledby="contato-home-title">
+        <div>
+          <p className="eyebrow">Contato oficial</p>
+          <h2 id="contato-home-title">Precisa falar com Clever Souza?</h2>
+          <p>
+            Use a página de contato para seguir pelo canal confirmado e enviar
+            somente as informações necessárias para iniciar a conversa.
+          </p>
+        </div>
+        <Link className="button" href="/contato">
+          Ir para Contato
         </Link>
-        <Link href="/sobre">
-          <span>Sobre</span>
-          <span aria-hidden="true">→</span>
-        </Link>
-        <Link href="/contato">
-          <span>Contato</span>
-          <span aria-hidden="true">→</span>
-        </Link>
-      </nav>
+      </section>
     </PageShell>
   );
 }
@@ -1148,6 +1260,7 @@ export function AboutPage() {
       ]}
     >
       <JsonLd value={personSchema} />
+      <JsonLd value={profilePageSchema} />
       <section className="about-hero brand-about-hero">
         <div className="about-brand-mark" aria-hidden="true">
           <img
@@ -1162,8 +1275,8 @@ export function AboutPage() {
           <h1>Clever Souza</h1>
           <p className="about-role">Cleverson Batista de Souza</p>
           <p className="hero-lead">
-            Este é o espaço oficial que reúne minha atuação, os conteúdos
-            publicados e os caminhos para entrar em contato.
+            Este é o espaço oficial que reúne áreas de conteúdo, atuação
+            profissional e os caminhos confirmados para entrar em contato.
           </p>
           <a
             className="button"
@@ -1190,7 +1303,8 @@ export function AboutPage() {
           <h2>Neste site</h2>
           <ul>
             <li><strong>Sobre</strong><span>Identidade e informações confirmadas.</span></li>
-            <li><strong>Massoterapia</strong><span>Área profissional com identidade e conteúdo próprios.</span></li>
+            <li><strong>Nutrição</strong><span>Biblioteca editorial de conhecimento estruturado.</span></li>
+            <li><strong>Massoterapia</strong><span>Área profissional e editorial com identidade própria.</span></li>
             <li><strong>Contato</strong><span>Canal oficial e direto pelo WhatsApp.</span></li>
           </ul>
         </div>

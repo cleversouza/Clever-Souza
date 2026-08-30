@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | Clever Souza",
   },
   description:
-    "Site oficial de Clever Souza, identidade de Cleverson Batista de Souza, em Curitiba, com informações, conteúdos e a área de Massoterapia.",
+    "Site oficial de Clever Souza, plataforma autoral de Cleverson Batista de Souza com uma biblioteca de Nutrição e a área de Massoterapia em Curitiba.",
   applicationName: "Clever Souza",
   authors: [{ name: "Cleverson Batista de Souza", url: `${siteUrl}/sobre` }],
   creator: "Cleverson Batista de Souza",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Clever Souza",
     title: "Clever Souza | Site oficial",
     description:
-      "Site oficial de Clever Souza, identidade de Cleverson Batista de Souza, em Curitiba, com informações, conteúdos e a área de Massoterapia.",
+      "Site oficial de Clever Souza, plataforma autoral de Cleverson Batista de Souza com uma biblioteca de Nutrição e a área de Massoterapia em Curitiba.",
     images: [
       {
         url: routeSocialImage("/"),
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Clever Souza | Site oficial",
     description:
-      "Site oficial de Clever Souza, identidade de Cleverson Batista de Souza, em Curitiba, com informações, conteúdos e a área de Massoterapia.",
+      "Site oficial de Clever Souza, plataforma autoral de Cleverson Batista de Souza com uma biblioteca de Nutrição e a área de Massoterapia em Curitiba.",
     images: [routeSocialImage("/")],
   },
   icons: {

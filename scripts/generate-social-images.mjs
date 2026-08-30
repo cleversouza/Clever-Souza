@@ -7,9 +7,19 @@ const projectRoot = resolve(import.meta.dirname, "..");
 const outputDir = join(projectRoot, "public", "social");
 const tempDir = mkdtempSync(join(tmpdir(), "clever-social-"));
 const publicDir = join(projectRoot, "public");
+const nutritionOnly = process.argv.includes("--nutrition-only");
 
 const globalPages = [
   ["inicio", "Projetos, conteúdos e iniciativas", "Site oficial"],
+  ["ia", "Inteligência Artificial", "GUIAS E SISTEMAS DE REFERÊNCIA"],
+  ["engenharia-de-prompt", "Engenharia de Prompt", "IA · GUIA OPERACIONAL"],
+  ["context-engineering", "Context Engineering", "IA · CONTEXTO OPERACIONAL"],
+  ["pesquisa-com-ia", "Pesquisa com IA", "IA · MÉTODO DE PESQUISA"],
+  ["ia-com-arquivos", "IA com Arquivos", "IA · ANÁLISE DOCUMENTAL"],
+  ["prompts-para-imagens", "Prompts para Imagens", "IA · DIREÇÃO VISUAL"],
+  ["videos-curtos", "Vídeos Curtos com IA", "IA · ATENÇÃO, ROTEIRO E DADOS"],
+  ["avaliacao-de-respostas-de-ia", "Avaliação de respostas de IA", "IA · PROTOCOLO DE AVALIAÇÃO", 22],
+  ["napoleon-hill", "Napoleon Hill", "IA · MODELO DE PENSAMENTO"],
   ["sobre", "Sobre Clever Souza", "Informações oficiais"],
   ["contato", "Fale com Clever Souza", "Canal oficial de contato"],
   ["aviso-de-saude", "Aviso de saúde", "Informação e cuidado responsável"],
@@ -45,6 +55,46 @@ const techniquePages = [
   ["antes-depois-massagem", "Antes e depois", "Cuidados que realmente importam", "antes-depois-massagem"],
 ];
 
+const nutritionPages = [
+  ["macronutrientes", "Macronutrientes", "Carboidratos, proteínas e gorduras", "NUTRIÇÃO · BIBLIOTECA"],
+  ["minerais", "Minerais e eletrólitos", "Quinze guias com números e contexto", "NUTRIÇÃO · BIBLIOTECA"],
+  ["aminoacidos", "Aminoácidos indispensáveis", "Os nove blocos que precisam vir da alimentação", "NUTRIÇÃO · BIBLIOTECA"],
+  ["acidos-graxos", "Ácidos graxos essenciais", "Ômega-3 e ômega-6 sem simplificações", "NUTRIÇÃO · BIBLIOTECA"],
+  ["outros-nutrientes", "Água, fibras e colina", "Três guias que completam o mapa", "NUTRIÇÃO · BIBLIOTECA"],
+  ["carboidratos", "Carboidratos", "Energia, matriz alimentar e referências", "NUTRIÇÃO · MACRONUTRIENTES"],
+  ["proteinas", "Proteínas", "Aminoácidos, qualidade e necessidades", "NUTRIÇÃO · MACRONUTRIENTES"],
+  ["gorduras", "Gorduras", "Tipos, fontes, absorção e segurança", "NUTRIÇÃO · MACRONUTRIENTES"],
+  ["calcio", "Cálcio", "Ossos, sinalização, fontes e excesso", "NUTRIÇÃO · MINERAIS"],
+  ["fosforo", "Fósforo", "Estrutura, ATP, aditivos e rins", "NUTRIÇÃO · MINERAIS"],
+  ["magnesio", "Magnésio", "Cofator, fontes e limites de suplemento", "NUTRIÇÃO · MINERAIS"],
+  ["sodio", "Sódio", "Sal, volume, pressão e hiponatremia", "NUTRIÇÃO · ELETRÓLITOS"],
+  ["potassio", "Potássio", "Células, pressão, fontes e hipercalemia", "NUTRIÇÃO · ELETRÓLITOS"],
+  ["cloreto", "Cloreto", "Equilíbrio, acidez e relação com o sal", "NUTRIÇÃO · ELETRÓLITOS"],
+  ["ferro", "Ferro", "Oxigênio, ferritina, deficiência e sobrecarga", "NUTRIÇÃO · MINERAIS"],
+  ["zinco", "Zinco", "Enzimas, fontes, imunidade e cobre", "NUTRIÇÃO · MINERAIS"],
+  ["cobre", "Cobre", "Energia, ferro, tecido conjuntivo e excesso", "NUTRIÇÃO · MINERAIS"],
+  ["manganes", "Manganês", "Cofator, fontes e neurotoxicidade", "NUTRIÇÃO · MINERAIS"],
+  ["iodo", "Iodo", "Tireoide, sal iodado e janela de segurança", "NUTRIÇÃO · MINERAIS"],
+  ["selenio", "Selênio", "Selenoproteínas, fontes e toxicidade", "NUTRIÇÃO · MINERAIS"],
+  ["molibdenio", "Molibdênio", "Cofator enzimático e necessidade pequena", "NUTRIÇÃO · MINERAIS"],
+  ["cromo", "Cromo", "VDR, evidência e essencialidade em debate", "NUTRIÇÃO · MINERAIS"],
+  ["fluor", "Flúor", "Esmalte, água, creme dental e fluorose", "NUTRIÇÃO · MINERAIS"],
+  ["histidina", "Histidina", "Proteínas, histamina e carnosina", "NUTRIÇÃO · AMINOÁCIDOS"],
+  ["isoleucina", "Isoleucina", "BCAA, energia muscular e equilíbrio", "NUTRIÇÃO · AMINOÁCIDOS"],
+  ["leucina", "Leucina", "mTOR, síntese muscular e contexto", "NUTRIÇÃO · AMINOÁCIDOS"],
+  ["lisina", "Lisina", "Colágeno, carnitina e complementaridade", "NUTRIÇÃO · AMINOÁCIDOS"],
+  ["metionina", "Metionina", "Enxofre, metilação e homocisteína", "NUTRIÇÃO · AMINOÁCIDOS"],
+  ["fenilalanina", "Fenilalanina", "Tirosina, neurotransmissores e PKU", "NUTRIÇÃO · AMINOÁCIDOS"],
+  ["treonina", "Treonina", "Proteínas, mucinas e indispensabilidade", "NUTRIÇÃO · AMINOÁCIDOS"],
+  ["triptofano", "Triptofano", "Serotonina, melatonina e quinurenina", "NUTRIÇÃO · AMINOÁCIDOS"],
+  ["valina", "Valina", "BCAA, proteínas e energia muscular", "NUTRIÇÃO · AMINOÁCIDOS"],
+  ["acido-linoleico-omega-6", "Ácido linoleico", "Ômega-6 essencial sem o mito inflamatório", "NUTRIÇÃO · ÁCIDOS GRAXOS"],
+  ["acido-alfa-linolenico-omega-3", "Ácido alfa-linolênico", "ALA, conversão e fontes vegetais", "NUTRIÇÃO · ÁCIDOS GRAXOS"],
+  ["agua", "Água", "Hidratação, sede, perdas e excesso", "NUTRIÇÃO · ESSENCIAIS"],
+  ["fibras-alimentares", "Fibras alimentares", "Viscosidade, fermentação e tolerância", "NUTRIÇÃO · COMPONENTES"],
+  ["colina", "Colina", "Membranas, acetilcolina e metilação", "NUTRIÇÃO · ESSENCIAIS"],
+];
+
 function escapeXml(value) {
   return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
@@ -73,8 +123,8 @@ function textLines(lines, { x, y, fill, size, lineHeight, weight = 700, letterSp
     .join("\n");
 }
 
-function globalSvg(title, eyebrow) {
-  const titleLines = wrap(title, 28, 3);
+function globalSvg(title, eyebrow, titleWrap = 28) {
+  const titleLines = wrap(title, titleWrap, 3);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#06182f"/><stop offset="1" stop-color="#0b5c97"/></linearGradient>
@@ -137,6 +187,28 @@ function techniqueSvg(title, subtitle) {
 </svg>`;
 }
 
+function nutritionSvg(title, subtitle, eyebrow) {
+  const titleLines = wrap(title, 25, 3);
+  const subtitleLines = wrap(subtitle, 42, 2);
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="nutritionGlow" cx="82%" cy="28%" r="70%"><stop offset="0" stop-color="#70d8e8" stop-opacity=".28"/><stop offset=".48" stop-color="#2778ae" stop-opacity=".18"/><stop offset="1" stop-color="#041a34" stop-opacity="0"/></radialGradient>
+    <linearGradient id="nutritionLine" x1="0" x2="1"><stop offset="0" stop-color="#70d8e8"/><stop offset="1" stop-color="#70d8e8" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#041a34"/>
+  <rect width="1200" height="630" fill="url(#nutritionGlow)"/>
+  <circle cx="968" cy="314" r="224" fill="none" stroke="#b9dceb" stroke-opacity=".14"/>
+  <circle cx="968" cy="314" r="154" fill="#061d38" fill-opacity=".44" stroke="#70d8e8" stroke-opacity=".18"/>
+  <circle cx="968" cy="314" r="78" fill="#0b5c97" fill-opacity=".3"/>
+  <path d="M818 166l300 300M1118 166L818 466" stroke="#70d8e8" stroke-opacity=".08"/>
+  <text x="76" y="188" fill="#70d8e8" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2.8">${escapeXml(eyebrow)}</text>
+  ${textLines(titleLines, { x: 74, y: 282, fill: "#f8fafc", size: 52, lineHeight: 64, weight: 700 })}
+  ${textLines(subtitleLines, { x: 76, y: 494, fill: "#b9dceb", size: 23, lineHeight: 31, weight: 400 })}
+  <rect x="76" y="552" width="330" height="2" fill="url(#nutritionLine)"/>
+  <text x="76" y="591" fill="#70d8e8" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="700">www.cleversouza.com</text>
+</svg>`;
+}
+
 function render(name, svg) {
   const source = join(tempDir, `${name}.svg`);
   const output = join(outputDir, `${name}.png`);
@@ -180,26 +252,34 @@ function applyMassotherapyHomeAlignedHeader(output, name) {
 
 try {
   execFileSync("mkdir", ["-p", outputDir]);
-  for (const [name, title, eyebrow] of globalPages) {
-    const output = render(name, globalSvg(title, eyebrow));
-    composite(output, raster("brand/logo-horizontal-principal.svg", `${name}-brand`, "360x72"), "+76+62");
-    composite(output, raster("brand/simbolo-clever-souza-metalico.svg", `${name}-symbol`, "146x154"), "+923+227");
-  }
-  for (const [name, title, subtitle] of massotherapyPages) {
-    const homeAlignedHeader = name === "massoterapia";
-    const output = render(name, massotherapySvg(title, subtitle, { homeAlignedHeader }));
-    if (homeAlignedHeader) {
-      applyMassotherapyHomeAlignedHeader(output, name);
-    } else {
-      applyMassotherapyLockup(output, name);
+  if (!nutritionOnly) {
+    for (const [name, title, eyebrow, titleWrap] of globalPages) {
+      const output = render(name, globalSvg(title, eyebrow, titleWrap));
+      composite(output, raster("brand/logo-horizontal-principal.svg", `${name}-brand`, "360x72"), "+76+62");
+      composite(output, raster("brand/simbolo-clever-souza-metalico.svg", `${name}-symbol`, "146x154"), "+923+227");
+    }
+    for (const [name, title, subtitle] of massotherapyPages) {
+      const homeAlignedHeader = name === "massoterapia";
+      const output = render(name, massotherapySvg(title, subtitle, { homeAlignedHeader }));
+      if (homeAlignedHeader) {
+        applyMassotherapyHomeAlignedHeader(output, name);
+      } else {
+        applyMassotherapyLockup(output, name);
+      }
+    }
+    for (const [name, title, subtitle, imageStem] of techniquePages) {
+      const output = render(name, techniqueSvg(title, subtitle));
+      composite(output, crop(`massoterapia/tecnicas/${imageStem}-1080.webp`, `${name}-photo`, "550x630"), "+650+0");
+      applyMassotherapyLockup(output, name, { x: 70, y: 58 });
     }
   }
-  for (const [name, title, subtitle, imageStem] of techniquePages) {
-    const output = render(name, techniqueSvg(title, subtitle));
-    composite(output, crop(`massoterapia/tecnicas/${imageStem}-1080.webp`, `${name}-photo`, "550x630"), "+650+0");
-    applyMassotherapyLockup(output, name, { x: 70, y: 58 });
+  for (const [name, title, subtitle, eyebrow] of nutritionPages) {
+    const output = render(name, nutritionSvg(title, subtitle, eyebrow));
+    composite(output, raster("brand/logo-horizontal-branca.svg", `${name}-nutrition-brand`, "360x72"), "+76+62");
   }
-  copyFileSync(join(outputDir, "inicio.png"), join(publicDir, "og-clever-souza.png"));
+  if (!nutritionOnly) {
+    copyFileSync(join(outputDir, "inicio.png"), join(publicDir, "og-clever-souza.png"));
+  }
 } finally {
   rmSync(tempDir, { recursive: true, force: true });
 }

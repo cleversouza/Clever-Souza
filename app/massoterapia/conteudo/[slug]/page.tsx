@@ -30,13 +30,6 @@ export async function generateMetadata({
   return {
     title: { absolute: article.metaTitle },
     description: article.metaDescription,
-    keywords: [
-      article.keyword,
-      article.technique,
-      "massoterapia em Curitiba",
-      "sessão de massoterapia",
-      "cuidados na massoterapia",
-    ],
     authors: [
       { name: "Cleverson Batista de Souza", url: `${SITE_URL}/sobre` },
     ],

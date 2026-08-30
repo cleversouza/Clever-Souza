@@ -22,7 +22,11 @@ export function MobileMenu({
   const restoreFocusRef = useRef(true);
 
   const current = (href: string) =>
-    href === "/" ? active === "/" : active.startsWith(href);
+    href === "/"
+      ? active === "/"
+      : href === "/ia"
+        ? active === "/ia" || active.startsWith("/ia/")
+        : active.startsWith(href);
 
   useEffect(() => {
     if (!open) return;

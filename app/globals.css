@@ -2266,6 +2266,11 @@ p {
   font-size: 0.85rem;
 }
 
+.nutrition-publication-meta a {
+  color: var(--color-brand-primary);
+  font-weight: 750;
+}
+
 .nutrition-hero-visual {
   overflow: hidden;
   margin: 0;
@@ -2835,6 +2840,457 @@ p {
   .nutrition-pregnancy-alert,
   .nutrition-equivalence {
     padding: 1.15rem;
+  }
+}
+
+/* Biblioteca ampliada de nutrientes */
+
+.nutrient-library-overview {
+  padding-top: 2rem;
+}
+
+.nutrient-library-heading,
+.nutrient-index-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(20rem, 1fr);
+  align-items: end;
+  gap: clamp(2rem, 6vw, 6rem);
+  margin-bottom: 2rem;
+}
+
+.nutrient-library-heading h2,
+.nutrient-index-intro h2 {
+  margin: 0.3rem 0 0;
+  color: var(--navy);
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.nutrient-library-heading > p,
+.nutrient-index-intro > p {
+  max-width: 44rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.nutrient-category-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.nutrient-category-card {
+  grid-column: span 6;
+  display: grid;
+  grid-template-columns: minmax(11rem, 0.8fr) minmax(0, 1.2fr);
+  min-height: 23rem;
+  overflow: hidden;
+  border: 1px solid rgb(11 79 138 / 11%);
+  border-radius: 1.6rem;
+  background: #fff;
+  box-shadow: 0 1.25rem 3.5rem rgb(4 26 52 / 7%);
+}
+
+.nutrient-category-card:nth-child(3),
+.nutrient-category-card:nth-child(4) {
+  grid-column: span 6;
+}
+
+.nutrient-category-card:last-child {
+  grid-column: 3 / span 8;
+}
+
+.nutrient-category-card > img {
+  width: 100%;
+  height: 100%;
+  min-height: 23rem;
+  object-fit: cover;
+}
+
+.nutrient-category-card > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(1.5rem, 3vw, 2.4rem);
+}
+
+.nutrient-category-card h3 {
+  margin: 0.45rem 0 0.8rem;
+  color: var(--navy);
+  font-size: clamp(1.65rem, 3vw, 2.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.nutrient-category-card p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.nutrient-category-card .text-link {
+  margin-top: auto;
+  padding-top: 1.3rem;
+}
+
+.nutrient-guide-count {
+  display: inline-flex;
+  margin-top: 1.1rem;
+  border: 1px solid rgb(39 120 174 / 18%);
+  border-radius: 999px;
+  padding: 0.38rem 0.72rem;
+  color: #0b5c97;
+  background: rgb(112 216 232 / 9%);
+  font-size: 0.78rem;
+  font-weight: 760;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.nutrient-category-typography {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 20rem;
+  padding: 2rem;
+  color: #d8eef5;
+  background:
+    radial-gradient(circle at 24% 20%, rgb(112 216 232 / 25%), transparent 36%),
+    linear-gradient(145deg, #071a33, #0b5c97);
+}
+
+.nutrient-category-typography span {
+  font-size: clamp(2rem, 5vw, 4.7rem);
+  font-weight: 760;
+  letter-spacing: -0.06em;
+}
+
+.nutrient-category-typography strong {
+  color: #70d8e8;
+  font-size: 1.4rem;
+}
+
+.nutrient-scope-note {
+  width: min(100%, 61rem);
+  margin: 2.2rem auto 0;
+  border-top: 1px solid rgb(11 79 138 / 16%);
+  padding: 2rem 0 0;
+}
+
+.nutrient-scope-note h3 {
+  margin: 0.4rem 0 0.75rem;
+  color: var(--navy);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.nutrient-scope-note p:last-child {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.nutrient-category-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(20rem, 0.95fr);
+  align-items: stretch;
+  overflow: hidden;
+  padding: 0;
+}
+
+.nutrient-category-hero::after {
+  display: none;
+}
+
+.nutrient-category-hero > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(2.2rem, 5vw, 5rem);
+}
+
+.nutrient-category-hero h1 {
+  max-width: 13ch;
+}
+
+.nutrient-category-hero > div:first-child > p:not(.eyebrow) {
+  max-width: 42rem;
+}
+
+.nutrient-category-hero > img,
+.nutrient-category-hero > .nutrient-category-typography {
+  width: 100%;
+  height: 100%;
+  min-height: 31rem;
+  object-fit: cover;
+}
+
+.nutrient-index {
+  padding-top: 2rem;
+}
+
+.nutrient-index-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgb(11 79 138 / 12%);
+  border-radius: 1.5rem;
+  background: rgb(11 79 138 / 12%);
+}
+
+.nutrient-index-grid article {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: 1.2rem;
+  min-height: 19rem;
+  padding: clamp(1.5rem, 3vw, 2.4rem);
+  background: #fff;
+}
+
+.nutrient-index-grid article > span {
+  color: var(--nutrient-accent, #2778ae);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.nutrient-index-grid article > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.nutrient-index-grid h3 {
+  margin: 0.4rem 0 0.75rem;
+  color: var(--navy);
+  font-size: clamp(1.45rem, 2.3vw, 2rem);
+  letter-spacing: -0.035em;
+}
+
+.nutrient-index-grid p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.nutrient-index-grid .text-link {
+  margin-top: auto;
+  padding-top: 1.2rem;
+}
+
+.nutrient-category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  padding-top: 1rem;
+}
+
+.nutrient-category-nav a {
+  border: 1px solid rgb(11 79 138 / 16%);
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  color: var(--navy);
+  background: #fff;
+  font-size: 0.86rem;
+  font-weight: 740;
+  text-decoration: none;
+}
+
+.nutrient-category-nav a:hover,
+.nutrient-category-nav a:focus-visible {
+  border-color: #2778ae;
+  color: #0b5c97;
+}
+
+.nutrition-article--nutrient .nutrition-article-hero {
+  background:
+    radial-gradient(circle at 82% 18%, color-mix(in srgb, var(--nutrient-accent) 32%, transparent), transparent 42%),
+    linear-gradient(145deg, #06182f, #092b4b 62%, #0b4f75);
+}
+
+.nutrition-article--nutrient .nutrition-essential {
+  border-color: color-mix(in srgb, var(--nutrient-accent) 38%, #d8e5ec);
+  background: color-mix(in srgb, var(--nutrient-accent) 8%, #fff);
+}
+
+.nutrient-detail-hero {
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.65fr);
+}
+
+.nutrient-detail-hero .nutrition-article-heading h1 {
+  max-width: 13ch;
+  font-size: clamp(3.7rem, 7vw, 7rem);
+}
+
+.nutrient-symbol {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 26rem;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 1.4rem;
+  padding: 2rem;
+  color: #f8fafc;
+  background: rgb(3 18 37 / 38%);
+  text-align: center;
+}
+
+.nutrient-symbol::before,
+.nutrient-symbol::after {
+  position: absolute;
+  z-index: -1;
+  border: 1px solid color-mix(in srgb, var(--nutrient-accent) 55%, transparent);
+  border-radius: 50%;
+  content: "";
+}
+
+.nutrient-symbol::before {
+  width: 19rem;
+  height: 19rem;
+}
+
+.nutrient-symbol::after {
+  width: 13rem;
+  height: 13rem;
+  background: color-mix(in srgb, var(--nutrient-accent) 12%, transparent);
+}
+
+.nutrient-symbol span,
+.nutrient-symbol strong,
+.nutrient-symbol small {
+  position: relative;
+  z-index: 1;
+}
+
+.nutrient-symbol span {
+  max-width: 12ch;
+  color: #f8fafc;
+  font-size: clamp(2.2rem, 4.5vw, 4.5rem);
+  font-weight: 790;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.nutrient-symbol strong {
+  margin-top: 1.4rem;
+  color: #70d8e8;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+.nutrient-symbol small {
+  max-width: 18rem;
+  margin-top: 0.45rem;
+  color: #b9dceb;
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nutrient-category-card > img,
+  .nutrient-category-hero > img {
+    transition: transform 450ms ease;
+  }
+
+  .nutrient-category-card:hover > img {
+    transform: scale(1.02);
+  }
+}
+
+@media (max-width: 980px) {
+  .nutrient-category-card,
+  .nutrient-category-card:last-child {
+    grid-column: span 12;
+  }
+
+  .nutrient-category-hero,
+  .nutrient-detail-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrient-category-hero > img,
+  .nutrient-category-hero > .nutrient-category-typography,
+  .nutrient-symbol {
+    min-height: 22rem;
+  }
+
+  .nutrient-category-hero > img,
+  .nutrient-category-hero > .nutrient-category-typography {
+    order: -1;
+  }
+
+  .nutrient-symbol {
+    order: -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .nutrient-library-heading,
+  .nutrient-index-intro,
+  .nutrient-category-card,
+  .nutrient-index-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrient-category-card > img {
+    min-height: 16rem;
+    aspect-ratio: 3 / 2;
+  }
+
+  .nutrient-category-card:last-child {
+    grid-column: span 12;
+  }
+
+  .nutrient-category-card > .nutrient-category-typography {
+    min-height: 16rem;
+  }
+
+  .nutrient-category-hero > div:first-child {
+    padding: 2rem 1.2rem;
+  }
+
+  .nutrient-category-hero > img,
+  .nutrient-category-hero > .nutrient-category-typography,
+  .nutrient-symbol {
+    min-height: 17rem;
+  }
+
+  .nutrient-index-grid article {
+    grid-template-columns: 3rem minmax(0, 1fr);
+    min-height: 17rem;
+    padding: 1.35rem;
+  }
+
+  .nutrient-detail-hero .nutrition-article-heading h1 {
+    font-size: clamp(3.2rem, 16vw, 5rem);
+  }
+}
+
+@media (max-width: 390px) {
+  .nutrient-category-card > div:last-child,
+  .nutrient-category-hero > div:first-child {
+    padding: 1.35rem;
+  }
+
+  .nutrient-index-grid article {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrient-symbol {
+    min-height: 15.5rem;
   }
 }
 
@@ -3585,6 +4041,151 @@ p {
   transform: translateY(-2px);
 }
 
+.brand-hero-actions {
+  margin-top: 2rem;
+}
+
+.home-areas {
+  scroll-margin-top: 6rem;
+  padding-top: clamp(4.5rem, 9vw, 7.5rem);
+  padding-bottom: clamp(4.5rem, 9vw, 7.5rem);
+}
+
+.home-areas .brand-intro {
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.home-area-grid {
+  display: grid;
+  align-items: stretch;
+  gap: 1.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.home-area-card {
+  position: relative;
+  display: flex;
+  min-height: 34rem;
+  overflow: hidden;
+  padding: clamp(2rem, 4.5vw, 3.5rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  flex-direction: column;
+  isolation: isolate;
+}
+
+.home-area-card::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.home-area-card-nutrition {
+  background: #f8fbfc;
+  box-shadow: var(--shadow-sm);
+}
+
+.home-area-card-nutrition::before {
+  background:
+    radial-gradient(circle at 92% 10%, rgb(209 181 119 / 18%), transparent 30%),
+    radial-gradient(circle at 8% 90%, rgb(112 216 232 / 13%), transparent 32%),
+    linear-gradient(rgb(11 79 138 / 3%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(11 79 138 / 3%) 1px, transparent 1px);
+  background-size: auto, auto, 3rem 3rem, 3rem 3rem;
+}
+
+.home-area-card-massotherapy {
+  border-color: rgb(112 216 232 / 24%);
+  background: var(--color-brand-deep);
+  box-shadow: var(--shadow-lg);
+}
+
+.home-area-card-massotherapy::before {
+  background:
+    radial-gradient(circle at 90% 12%, rgb(112 216 232 / 18%), transparent 27%),
+    linear-gradient(145deg, transparent 45%, rgb(39 120 174 / 18%));
+}
+
+.home-area-card-heading {
+  max-width: 34rem;
+}
+
+.home-area-index {
+  display: block;
+  margin-bottom: clamp(3.5rem, 8vw, 6rem);
+  color: var(--color-brand-steel);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.home-area-card h3 {
+  margin-bottom: 1rem;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  letter-spacing: -0.055em;
+}
+
+.home-area-card p {
+  font-size: 1.05rem;
+}
+
+.home-area-card ul {
+  display: grid;
+  margin: 2rem 0 2.5rem;
+  padding: 0;
+  gap: 0;
+  list-style: none;
+}
+
+.home-area-card li {
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.home-area-card li:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.home-area-card > .text-link {
+  min-height: 3rem;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.home-area-card-massotherapy h3,
+.home-area-card-massotherapy p,
+.home-area-card-massotherapy li {
+  color: #fff;
+}
+
+.home-area-card-massotherapy p,
+.home-area-card-massotherapy li {
+  color: var(--color-brand-silver);
+}
+
+.home-area-card-massotherapy .home-area-index,
+.home-area-card-massotherapy .text-link {
+  color: var(--color-brand-cyan);
+}
+
+.home-area-card-massotherapy li {
+  border-color: rgb(185 220 235 / 20%);
+}
+
+.brand-principles {
+  padding-top: clamp(4.5rem, 9vw, 7.5rem);
+  padding-bottom: clamp(4.5rem, 9vw, 7.5rem);
+}
+
+.brand-contact-cta {
+  margin-top: clamp(4.5rem, 9vw, 7rem);
+}
+
 .massotherapy-instagram,
 .contact-direct {
   display: flex;
@@ -3680,6 +4281,10 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .home-area-card {
+    min-height: 31rem;
+  }
+
   .axis-section {
     grid-template-columns: minmax(9rem, 0.4fr) minmax(0, 1fr);
   }
@@ -3746,6 +4351,18 @@ p {
 
   .home-quick-links {
     grid-template-columns: 1fr;
+  }
+
+  .home-area-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-area-card {
+    min-height: auto;
+  }
+
+  .home-area-index {
+    margin-bottom: 2.75rem;
   }
 
   .home-quick-links a {
@@ -3833,6 +4450,10 @@ p {
   .brand-coordinate-bottom {
     bottom: 1.25rem;
     left: 1.25rem;
+  }
+
+  .brand-hero-actions .button {
+    width: 100%;
   }
 }
 
@@ -4814,6 +5435,7 @@ p {
 
 .button,
 .home-quick-links a,
+.home-area-card,
 .service-card,
 .technique-card,
 .article-card,
@@ -4954,6 +5576,7 @@ p {
   }
 
   .home-quick-links a:hover,
+  .home-area-card:hover,
   .service-card:hover,
   .technique-card:hover,
   .article-card:hover,
@@ -4989,6 +5612,7 @@ p {
 @media (pointer: coarse) {
   .button:active,
   .home-quick-links a:active,
+  .home-area-card:active,
   .service-card:active,
   .technique-card:active,
   .article-card:active,
@@ -4997,6 +5621,7 @@ p {
   }
 
   .home-quick-links a:hover,
+  .home-area-card:hover,
   .service-card:hover,
   .technique-card:hover,
   .article-card:hover,

@@ -7,15 +7,17 @@ export function pageMetadata(
   title: string,
   description: string,
   path: string,
-  keywords: string[] = [],
+  _keywords: string[] = [],
 ): Metadata {
+  // Mantém compatibilidade com as listas editoriais existentes sem publicar
+  // a meta keywords, que não contribui para a indexação moderna.
+  void _keywords;
   const canonical = path === "/" ? siteUrl : `${siteUrl}${path}`;
   const socialImage = routeSocialImage(path);
 
   return {
     title,
     description,
-    keywords,
     alternates: { canonical },
     openGraph: {
       type: "website",

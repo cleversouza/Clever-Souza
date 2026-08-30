@@ -1,0 +1,459 @@
+.page {
+  --ia-deep: #071a33;
+  --ia-blue: #0b4f8a;
+  --ia-cyan: #70d8e8;
+  --ia-soft: #526273;
+  --ia-line: #d7e3ec;
+  color: var(--ia-deep);
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  width: min(73rem, calc(100% - 2rem));
+  min-height: min(38rem, calc(100svh - 8rem));
+  margin: 0 auto;
+  padding: clamp(4.5rem, 9vw, 7.5rem) clamp(1.5rem, 5vw, 5rem);
+  border: 1px solid var(--ia-line);
+  border-radius: 0 0 clamp(1.5rem, 4vw, 3.5rem) clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+  gap: clamp(3rem, 7vw, 6.5rem);
+  grid-template-columns: minmax(0, 1.12fr) minmax(18rem, 0.72fr);
+  background:
+    radial-gradient(circle at 84% 12%, rgb(112 216 232 / 22%), transparent 23rem),
+    radial-gradient(circle at 18% 100%, rgb(85 94 214 / 10%), transparent 30rem),
+    linear-gradient(135deg, #fff 0%, #f6f9fc 58%, #eef4f8 100%);
+}
+
+.hero::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgb(11 79 138 / 4%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(11 79 138 / 4%) 1px, transparent 1px);
+  background-size: 3rem 3rem;
+  content: "";
+  mask-image: linear-gradient(90deg, transparent 0%, #000 55%, #000 100%);
+  pointer-events: none;
+}
+
+.heroCopy,
+.flow {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: var(--ia-blue);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 10ch;
+  margin-bottom: 1.5rem;
+  font-size: clamp(3rem, 6.6vw, 5.8rem);
+}
+
+.lead {
+  max-width: 43rem;
+  margin-bottom: 2rem;
+  color: var(--ia-soft);
+  font-size: clamp(1.08rem, 2vw, 1.28rem);
+  line-height: 1.65;
+}
+
+.flow {
+  display: grid;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid rgb(112 216 232 / 24%);
+  border-radius: 2rem;
+  gap: 1px;
+  background: rgb(185 220 235 / 18%);
+  box-shadow: 0 28px 70px rgb(7 26 51 / 18%);
+  list-style: none;
+}
+
+.flow li {
+  position: relative;
+  display: grid;
+  min-height: 7.25rem;
+  padding: 1.35rem 1.5rem 1.25rem 4.2rem;
+  align-content: center;
+  background: linear-gradient(155deg, #071a33 0%, #0b355d 100%);
+  color: #fff;
+}
+
+.flow li:first-child {
+  border-radius: 1.2rem 1.2rem 0 0;
+}
+
+.flow li:last-child {
+  border-radius: 0 0 1.2rem 1.2rem;
+}
+
+.flow li + li::before {
+  position: absolute;
+  z-index: 1;
+  top: -0.7rem;
+  left: 50%;
+  display: grid;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  place-items: center;
+  background: var(--ia-cyan);
+  color: var(--ia-deep);
+  content: "↓";
+  font-size: 0.78rem;
+  font-weight: 900;
+  transform: translateX(-50%);
+}
+
+.flow li > span {
+  position: absolute;
+  top: 1.65rem;
+  left: 1.5rem;
+  color: var(--ia-cyan);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.flow strong {
+  font-size: 1.08rem;
+}
+
+.flow small {
+  color: #b9dceb;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.guidesSection {
+  width: min(65rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  scroll-margin-top: 7rem;
+}
+
+.sectionHeading {
+  max-width: 45rem;
+  margin-bottom: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+.sectionHeading h2 {
+  margin-bottom: 1.1rem;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+}
+
+.sectionHeading > p:last-child {
+  max-width: 39rem;
+  margin-bottom: 0;
+  color: var(--ia-soft);
+  font-size: 1.05rem;
+}
+
+.guideGrid {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--ia-line);
+  border-radius: 1.5rem;
+  gap: 1px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: var(--ia-line);
+  box-shadow: 0 18px 50px rgb(7 26 51 / 6%);
+}
+
+.guideCard {
+  --card-accent: #555ed6;
+  position: relative;
+  display: flex;
+  min-height: 25rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  flex-direction: column;
+  background: #fff;
+}
+
+.guideCard::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0.22rem;
+  background: var(--card-accent);
+  content: "";
+}
+
+.research {
+  --card-accent: #0d7a73;
+}
+
+.deepResearch {
+  --card-accent: #6f5a9b;
+}
+
+.context {
+  --card-accent: #a55f2b;
+}
+
+.evaluation {
+  --card-accent: #765b91;
+}
+
+.files {
+  --card-accent: #9a4d58;
+}
+
+.images {
+  --card-accent: #26708a;
+}
+
+.videos {
+  --card-accent: #b04f35;
+}
+
+.cardMeta {
+  display: flex;
+  margin-bottom: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--card-accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.guideCard h3 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
+}
+
+.guideCard > p {
+  margin-bottom: 2rem;
+  color: var(--ia-soft);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.guideLink {
+  display: flex;
+  min-height: 2.75rem;
+  margin-top: auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--ia-deep);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.guideLink span {
+  color: var(--card-accent);
+  font-size: 1.15rem;
+  transition: transform 160ms ease;
+}
+
+.guideLink:hover span {
+  transform: translateX(0.2rem);
+}
+
+.modelsSection {
+  display: grid;
+  width: min(65rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 0 0 clamp(5rem, 10vw, 8rem);
+  align-items: start;
+  gap: clamp(2rem, 6vw, 5rem);
+  grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
+}
+
+.modelsIntro h2 {
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.modelsIntro > p:last-child {
+  margin: 0;
+  color: var(--ia-soft);
+}
+
+.modelList {
+  border-top: 1px solid var(--ia-line);
+}
+
+.modelCard {
+  display: grid;
+  min-height: 13rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--ia-line);
+  align-items: start;
+  gap: 1.5rem;
+  grid-template-columns: minmax(10rem, 0.42fr) 1fr;
+}
+
+.modelCard > div span {
+  display: block;
+  margin-bottom: 1rem;
+  color: #8a6434;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.modelCard h3 {
+  margin: 0;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.modelCard > p {
+  margin: 0;
+  color: var(--ia-soft);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.modelLink {
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ia-deep);
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-decoration: none;
+  grid-column: 2;
+}
+
+.modelLink span {
+  color: #8a6434;
+  font-size: 1.1rem;
+  transition: transform 160ms ease;
+}
+
+.modelLink:hover span {
+  transform: translateX(0.2rem);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .flow {
+    width: min(100%, 36rem);
+  }
+
+  .guideGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .guideCard {
+    min-height: auto;
+  }
+
+  .modelsSection {
+    grid-template-columns: 1fr;
+  }
+
+  .evaluation {
+    grid-column: auto;
+  }
+
+  .cardMeta {
+    margin-bottom: 1.75rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero,
+  .guidesSection,
+  .modelsSection {
+    width: calc(100% - 1rem);
+  }
+
+  .hero {
+    padding: 3.5rem 1.25rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.85rem, 14vw, 4.6rem);
+  }
+
+  .flow {
+    padding: 0.75rem;
+    border-radius: 1.4rem;
+  }
+
+  .guidesSection {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .sectionHeading h2 {
+    font-size: clamp(2.05rem, 11vw, 3.1rem);
+  }
+
+  .guideGrid {
+    border-radius: 1.25rem;
+  }
+
+  .guideCard {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero,
+  .guidesSection,
+  .modelsSection {
+    width: calc(100% - 0.75rem);
+  }
+
+  .hero {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.7rem;
+    overflow-wrap: anywhere;
+  }
+
+  .flow li {
+    min-height: 6.75rem;
+    padding-right: 1rem;
+    padding-left: 3.75rem;
+  }
+
+  .flow li > span {
+    left: 1.2rem;
+  }
+
+  .modelCard {
+    grid-template-columns: 1fr;
+  }
+
+  .modelLink {
+    grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

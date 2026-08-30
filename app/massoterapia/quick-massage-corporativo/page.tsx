@@ -13,12 +13,6 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  keywords: [
-    "Quick Massage para empresas",
-    "Quick Massage corporativa",
-    "massagem em empresas",
-    "bem-estar corporativo Curitiba",
-  ],
   alternates: { canonical: pageUrl },
   openGraph: {
     type: "website",

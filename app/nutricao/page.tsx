@@ -5,7 +5,15 @@ export const metadata = pageMetadata(
   "Nutrição",
   "Biblioteca editorial sobre nutrientes, alimentação, rótulos e suplementação com clareza, contexto e fontes confiáveis.",
   "/nutricao",
-  ["nutrição", "nutrientes", "vitaminas", "alimentação", "suplementação"],
+  [
+    "nutrição",
+    "nutrientes",
+    "vitaminas",
+    "minerais",
+    "macronutrientes",
+    "aminoácidos essenciais",
+    "alimentação",
+  ],
 );
 
 export default function Page() {

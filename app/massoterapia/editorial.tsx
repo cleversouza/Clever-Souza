@@ -243,16 +243,6 @@ export function MassotherapyArticlePage({ slug }: { slug: string }) {
       "cuidados na massoterapia",
     ],
   };
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: article.faq.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
-  };
-
   return (
     <PageShell
       active="/massoterapia"
@@ -265,7 +255,6 @@ export function MassotherapyArticlePage({ slug }: { slug: string }) {
       ]}
     >
       <JsonLd value={articleSchema} />
-      <JsonLd value={faqSchema} />
 
       <article className="technique-article">
         <header className="technique-article-header">
